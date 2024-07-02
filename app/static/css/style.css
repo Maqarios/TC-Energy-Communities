@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: blue;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+.polygon-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#polygon-list {
+    margin-top: 20px;
+}
+
+#save-polygons {
+    margin-top: 20px;
+}
+
+#error-message {
+    color: red;
+    display: none;
+}

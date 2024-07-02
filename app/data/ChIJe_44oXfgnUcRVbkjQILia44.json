@@ -4,6 +4,7 @@
     "roofType": "flat",
     "tilt": "30",
     "azimuth": "0",
+    "featureType": "roof",
     "coordinates": [
       [
         305.66664695739746,
@@ -28,6 +29,7 @@
     "roofType": "flat",
     "tilt": "30",
     "azimuth": "0",
+    "featureType": "roof",
     "coordinates": [
       [
         304.3333339691162,
