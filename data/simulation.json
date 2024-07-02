@@ -1,0 +1,1831 @@
+{
+    "Data": [
+        {
+            "date": "2023-01-01",
+            "generation_kWh": 70.42389024120828,
+            "consumption_kWh": 152.43782103700474
+        },
+        {
+            "date": "2023-01-02",
+            "generation_kWh": 64.77810762356286,
+            "consumption_kWh": 165.55266324090277
+        },
+        {
+            "date": "2023-01-03",
+            "generation_kWh": 76.35674715576901,
+            "consumption_kWh": 181.51419038652153
+        },
+        {
+            "date": "2023-01-04",
+            "generation_kWh": 67.32358268558545,
+            "consumption_kWh": 170.32315878742787
+        },
+        {
+            "date": "2023-01-05",
+            "generation_kWh": 77.87264406631218,
+            "consumption_kWh": 152.00150281152392
+        },
+        {
+            "date": "2023-01-06",
+            "generation_kWh": 69.97456225884109,
+            "consumption_kWh": 159.2934439798548
+        },
+        {
+            "date": "2023-01-07",
+            "generation_kWh": 60.74813129274125,
+            "consumption_kWh": 193.34739353082904
+        },
+        {
+            "date": "2023-01-08",
+            "generation_kWh": 66.78115423014444,
+            "consumption_kWh": 153.72682035668348
+        },
+        {
+            "date": "2023-01-09",
+            "generation_kWh": 69.05782038885269,
+            "consumption_kWh": 163.9826285283624
+        },
+        {
+            "date": "2023-01-10",
+            "generation_kWh": 68.1270400606344,
+            "consumption_kWh": 159.98430256948583
+        },
+        {
+            "date": "2023-01-11",
+            "generation_kWh": 72.2599632775417,
+            "consumption_kWh": 165.98761468158787
+        },
+        {
+            "date": "2023-01-12",
+            "generation_kWh": 72.9684875373239,
+            "consumption_kWh": 158.68464716269133
+        },
+        {
+            "date": "2023-01-13",
+            "generation_kWh": 70.57624652429699,
+            "consumption_kWh": 174.6375902496132
+        },
+        {
+            "date": "2023-01-14",
+            "generation_kWh": 86.34922705950575,
+            "consumption_kWh": 143.29502660971616
+        },
+        {
+            "date": "2023-01-15",
+            "generation_kWh": 74.08820753616541,
+            "consumption_kWh": 148.69527545311533
+        },
+        {
+            "date": "2023-01-16",
+            "generation_kWh": 61.42539119296737,
+            "consumption_kWh": 150.53842251429808
+        },
+        {
+            "date": "2023-01-17",
+            "generation_kWh": 81.149175178071,
+            "consumption_kWh": 160.19064795980782
+        },
+        {
+            "date": "2023-01-18",
+            "generation_kWh": 65.63604328479168,
+            "consumption_kWh": 150.20605688322618
+        },
+        {
+            "date": "2023-01-19",
+            "generation_kWh": 59.121963515693544,
+            "consumption_kWh": 153.33363222539396
+        },
+        {
+            "date": "2023-01-20",
+            "generation_kWh": 71.14947811933399,
+            "consumption_kWh": 156.12924199313215
+        },
+        {
+            "date": "2023-01-21",
+            "generation_kWh": 62.31453254991729,
+            "consumption_kWh": 146.7103086303737
+        },
+        {
+            "date": "2023-01-22",
+            "generation_kWh": 80.7961325695591,
+            "consumption_kWh": 158.7126779207078
+        },
+        {
+            "date": "2023-01-23",
+            "generation_kWh": 58.09585693535256,
+            "consumption_kWh": 172.0416227138373
+        },
+        {
+            "date": "2023-01-24",
+            "generation_kWh": 74.48364192297986,
+            "consumption_kWh": 168.65125109722098
+        },
+        {
+            "date": "2023-01-25",
+            "generation_kWh": 77.16917564397104,
+            "consumption_kWh": 159.5834145712125
+        },
+        {
+            "date": "2023-01-26",
+            "generation_kWh": 68.25793310391494,
+            "consumption_kWh": 149.7877720056843
+        },
+        {
+            "date": "2023-01-27",
+            "generation_kWh": 54.935067028258075,
+            "consumption_kWh": 149.63467885999864
+        },
+        {
+            "date": "2023-01-28",
+            "generation_kWh": 67.65289708337578,
+            "consumption_kWh": 153.62537439362177
+        },
+        {
+            "date": "2023-01-29",
+            "generation_kWh": 73.71479999426622,
+            "consumption_kWh": 137.56886932304215
+        },
+        {
+            "date": "2023-01-30",
+            "generation_kWh": 74.4216553031221,
+            "consumption_kWh": 132.87041821160022
+        },
+        {
+            "date": "2023-01-31",
+            "generation_kWh": 55.26416698355132,
+            "consumption_kWh": 158.47809464949006
+        },
+        {
+            "date": "2023-02-01",
+            "generation_kWh": 82.45312852389739,
+            "consumption_kWh": 168.2574834844848
+        },
+        {
+            "date": "2023-02-02",
+            "generation_kWh": 68.41830513556148,
+            "consumption_kWh": 147.16789700902189
+        },
+        {
+            "date": "2023-02-03",
+            "generation_kWh": 67.60479716980018,
+            "consumption_kWh": 165.12267897371626
+        },
+        {
+            "date": "2023-02-04",
+            "generation_kWh": 67.52628511344841,
+            "consumption_kWh": 153.6366718989863
+        },
+        {
+            "date": "2023-02-05",
+            "generation_kWh": 58.68205403591884,
+            "consumption_kWh": 144.37108171209564
+        },
+        {
+            "date": "2023-02-06",
+            "generation_kWh": 70.99285623239378,
+            "consumption_kWh": 137.41709816046946
+        },
+        {
+            "date": "2023-02-07",
+            "generation_kWh": 53.540155971807465,
+            "consumption_kWh": 149.76523611010566
+        },
+        {
+            "date": "2023-02-08",
+            "generation_kWh": 71.5216932308695,
+            "consumption_kWh": 145.42388145357666
+        },
+        {
+            "date": "2023-02-09",
+            "generation_kWh": 72.02712929277534,
+            "consumption_kWh": 173.46278216020463
+        },
+        {
+            "date": "2023-02-10",
+            "generation_kWh": 69.43263895577859,
+            "consumption_kWh": 163.8980665507039
+        },
+        {
+            "date": "2023-02-11",
+            "generation_kWh": 62.93740468185404,
+            "consumption_kWh": 155.49843654842044
+        },
+        {
+            "date": "2023-02-12",
+            "generation_kWh": 68.06723386061623,
+            "consumption_kWh": 146.34546108555887
+        },
+        {
+            "date": "2023-02-13",
+            "generation_kWh": 68.20211858878075,
+            "consumption_kWh": 163.6634818980859
+        },
+        {
+            "date": "2023-02-14",
+            "generation_kWh": 75.8632960436095,
+            "consumption_kWh": 177.47638164677602
+        },
+        {
+            "date": "2023-02-15",
+            "generation_kWh": 58.3342493958715,
+            "consumption_kWh": 162.1934470406479
+        },
+        {
+            "date": "2023-02-16",
+            "generation_kWh": 67.33106459659658,
+            "consumption_kWh": 180.81813540789523
+        },
+        {
+            "date": "2023-02-17",
+            "generation_kWh": 78.81587387185749,
+            "consumption_kWh": 163.8054577838055
+        },
+        {
+            "date": "2023-02-18",
+            "generation_kWh": 66.34548441372581,
+            "consumption_kWh": 140.31946365796227
+        },
+        {
+            "date": "2023-02-19",
+            "generation_kWh": 79.65186070526511,
+            "consumption_kWh": 150.93392628761487
+        },
+        {
+            "date": "2023-02-20",
+            "generation_kWh": 70.0722485941015,
+            "consumption_kWh": 140.3711095741479
+        },
+        {
+            "date": "2023-02-21",
+            "generation_kWh": 75.76254934276677,
+            "consumption_kWh": 153.07403470000614
+        },
+        {
+            "date": "2023-02-22",
+            "generation_kWh": 67.14252952069438,
+            "consumption_kWh": 154.59151724265357
+        },
+        {
+            "date": "2023-02-23",
+            "generation_kWh": 77.07150591519277,
+            "consumption_kWh": 146.63609557002263
+        },
+        {
+            "date": "2023-02-24",
+            "generation_kWh": 78.58445156611876,
+            "consumption_kWh": 141.8667932378168
+        },
+        {
+            "date": "2023-02-25",
+            "generation_kWh": 75.85839820866534,
+            "consumption_kWh": 161.24634604961494
+        },
+        {
+            "date": "2023-02-26",
+            "generation_kWh": 74.46134358847647,
+            "consumption_kWh": 166.13628484406664
+        },
+        {
+            "date": "2023-02-27",
+            "generation_kWh": 70.94815024040928,
+            "consumption_kWh": 151.97276560066976
+        },
+        {
+            "date": "2023-02-28",
+            "generation_kWh": 75.67066137311693,
+            "consumption_kWh": 149.12947471395128
+        },
+        {
+            "date": "2023-03-01",
+            "generation_kWh": 81.990345446025,
+            "consumption_kWh": 137.06110616374795
+        },
+        {
+            "date": "2023-03-02",
+            "generation_kWh": 97.19156983276076,
+            "consumption_kWh": 107.57156832854565
+        },
+        {
+            "date": "2023-03-03",
+            "generation_kWh": 100.51570647844255,
+            "consumption_kWh": 113.34708164996752
+        },
+        {
+            "date": "2023-03-04",
+            "generation_kWh": 94.04621414924918,
+            "consumption_kWh": 124.00175625741865
+        },
+        {
+            "date": "2023-03-05",
+            "generation_kWh": 108.18188904269923,
+            "consumption_kWh": 121.1746997553815
+        },
+        {
+            "date": "2023-03-06",
+            "generation_kWh": 88.5814862326242,
+            "consumption_kWh": 108.85648131803104
+        },
+        {
+            "date": "2023-03-07",
+            "generation_kWh": 87.57040975287518,
+            "consumption_kWh": 105.02301589868544
+        },
+        {
+            "date": "2023-03-08",
+            "generation_kWh": 99.89727909094051,
+            "consumption_kWh": 106.69154963237929
+        },
+        {
+            "date": "2023-03-09",
+            "generation_kWh": 94.49701312817976,
+            "consumption_kWh": 123.22620575161503
+        },
+        {
+            "date": "2023-03-10",
+            "generation_kWh": 97.80382618076253,
+            "consumption_kWh": 135.64586712030086
+        },
+        {
+            "date": "2023-03-11",
+            "generation_kWh": 84.75543862533911,
+            "consumption_kWh": 123.9705722550433
+        },
+        {
+            "date": "2023-03-12",
+            "generation_kWh": 96.98755660004942,
+            "consumption_kWh": 109.03998728395172
+        },
+        {
+            "date": "2023-03-13",
+            "generation_kWh": 84.58009037177081,
+            "consumption_kWh": 111.2291001774742
+        },
+        {
+            "date": "2023-03-14",
+            "generation_kWh": 91.1270186191652,
+            "consumption_kWh": 124.16176879748987
+        },
+        {
+            "date": "2023-03-15",
+            "generation_kWh": 97.28508934725929,
+            "consumption_kWh": 128.41637688888392
+        },
+        {
+            "date": "2023-03-16",
+            "generation_kWh": 92.56331644124501,
+            "consumption_kWh": 111.09099889029592
+        },
+        {
+            "date": "2023-03-17",
+            "generation_kWh": 97.69934709948284,
+            "consumption_kWh": 135.99680615788958
+        },
+        {
+            "date": "2023-03-18",
+            "generation_kWh": 84.76627766053927,
+            "consumption_kWh": 153.05146148985904
+        },
+        {
+            "date": "2023-03-19",
+            "generation_kWh": 90.43361295891853,
+            "consumption_kWh": 100.61221350303722
+        },
+        {
+            "date": "2023-03-20",
+            "generation_kWh": 90.61624648438948,
+            "consumption_kWh": 134.7636592529548
+        },
+        {
+            "date": "2023-03-21",
+            "generation_kWh": 91.48115051775636,
+            "consumption_kWh": 123.7125446803586
+        },
+        {
+            "date": "2023-03-22",
+            "generation_kWh": 91.72730119462001,
+            "consumption_kWh": 141.78172010787492
+        },
+        {
+            "date": "2023-03-23",
+            "generation_kWh": 97.02047281410172,
+            "consumption_kWh": 138.54641482975404
+        },
+        {
+            "date": "2023-03-24",
+            "generation_kWh": 78.41479596894632,
+            "consumption_kWh": 156.32058559689722
+        },
+        {
+            "date": "2023-03-25",
+            "generation_kWh": 98.9723468157825,
+            "consumption_kWh": 148.37662516855147
+        },
+        {
+            "date": "2023-03-26",
+            "generation_kWh": 96.70850734937848,
+            "consumption_kWh": 127.4025406852998
+        },
+        {
+            "date": "2023-03-27",
+            "generation_kWh": 90.19491193183555,
+            "consumption_kWh": 133.515904893802
+        },
+        {
+            "date": "2023-03-28",
+            "generation_kWh": 100.62028858815063,
+            "consumption_kWh": 123.38895229110237
+        },
+        {
+            "date": "2023-03-29",
+            "generation_kWh": 77.05453756003992,
+            "consumption_kWh": 124.70897854134587
+        },
+        {
+            "date": "2023-03-30",
+            "generation_kWh": 97.71859242366608,
+            "consumption_kWh": 128.89932997463617
+        },
+        {
+            "date": "2023-03-31",
+            "generation_kWh": 106.5342634521914,
+            "consumption_kWh": 120.74200567679524
+        },
+        {
+            "date": "2023-04-01",
+            "generation_kWh": 95.8903275762907,
+            "consumption_kWh": 142.43808282803295
+        },
+        {
+            "date": "2023-04-02",
+            "generation_kWh": 106.89475528223876,
+            "consumption_kWh": 133.86740314756838
+        },
+        {
+            "date": "2023-04-03",
+            "generation_kWh": 95.65652669814381,
+            "consumption_kWh": 135.18369605626023
+        },
+        {
+            "date": "2023-04-04",
+            "generation_kWh": 83.0897868165465,
+            "consumption_kWh": 102.98692549268168
+        },
+        {
+            "date": "2023-04-05",
+            "generation_kWh": 75.85806298869244,
+            "consumption_kWh": 140.00254507678264
+        },
+        {
+            "date": "2023-04-06",
+            "generation_kWh": 96.64191782396709,
+            "consumption_kWh": 116.12230227420595
+        },
+        {
+            "date": "2023-04-07",
+            "generation_kWh": 99.82059330777454,
+            "consumption_kWh": 136.3121301967981
+        },
+        {
+            "date": "2023-04-08",
+            "generation_kWh": 98.74724803775922,
+            "consumption_kWh": 129.15122498035657
+        },
+        {
+            "date": "2023-04-09",
+            "generation_kWh": 79.33212163631828,
+            "consumption_kWh": 137.56581766357115
+        },
+        {
+            "date": "2023-04-10",
+            "generation_kWh": 101.52772887421916,
+            "consumption_kWh": 119.80754439654505
+        },
+        {
+            "date": "2023-04-11",
+            "generation_kWh": 96.19040547772063,
+            "consumption_kWh": 112.05449497453576
+        },
+        {
+            "date": "2023-04-12",
+            "generation_kWh": 98.94549509423136,
+            "consumption_kWh": 125.81435386027128
+        },
+        {
+            "date": "2023-04-13",
+            "generation_kWh": 97.65295570345525,
+            "consumption_kWh": 119.9719515713459
+        },
+        {
+            "date": "2023-04-14",
+            "generation_kWh": 111.39341087770282,
+            "consumption_kWh": 126.55067286391878
+        },
+        {
+            "date": "2023-04-15",
+            "generation_kWh": 74.67730740784387,
+            "consumption_kWh": 117.69223576395726
+        },
+        {
+            "date": "2023-04-16",
+            "generation_kWh": 84.36749644825142,
+            "consumption_kWh": 145.47094825272515
+        },
+        {
+            "date": "2023-04-17",
+            "generation_kWh": 96.79302978004026,
+            "consumption_kWh": 114.8735630017496
+        },
+        {
+            "date": "2023-04-18",
+            "generation_kWh": 95.68692954548737,
+            "consumption_kWh": 134.578543990611
+        },
+        {
+            "date": "2023-04-19",
+            "generation_kWh": 92.83787632231763,
+            "consumption_kWh": 115.6912848762866
+        },
+        {
+            "date": "2023-04-20",
+            "generation_kWh": 73.72587806417003,
+            "consumption_kWh": 141.92145327980936
+        },
+        {
+            "date": "2023-04-21",
+            "generation_kWh": 91.90753101518682,
+            "consumption_kWh": 86.29779726014937
+        },
+        {
+            "date": "2023-04-22",
+            "generation_kWh": 100.83984008170103,
+            "consumption_kWh": 117.92417577676724
+        },
+        {
+            "date": "2023-04-23",
+            "generation_kWh": 91.58054760341163,
+            "consumption_kWh": 152.63575033074417
+        },
+        {
+            "date": "2023-04-24",
+            "generation_kWh": 111.69733175917364,
+            "consumption_kWh": 128.87923336488527
+        },
+        {
+            "date": "2023-04-25",
+            "generation_kWh": 78.82593765824049,
+            "consumption_kWh": 129.0236923080609
+        },
+        {
+            "date": "2023-04-26",
+            "generation_kWh": 96.24846020329726,
+            "consumption_kWh": 118.95802425458045
+        },
+        {
+            "date": "2023-04-27",
+            "generation_kWh": 93.93849393368164,
+            "consumption_kWh": 118.80118368524128
+        },
+        {
+            "date": "2023-04-28",
+            "generation_kWh": 98.63021061541431,
+            "consumption_kWh": 128.66511243421178
+        },
+        {
+            "date": "2023-04-29",
+            "generation_kWh": 95.13217781905259,
+            "consumption_kWh": 130.73065148094747
+        },
+        {
+            "date": "2023-04-30",
+            "generation_kWh": 91.05639902489698,
+            "consumption_kWh": 114.55506837113343
+        },
+        {
+            "date": "2023-05-01",
+            "generation_kWh": 87.85958238536425,
+            "consumption_kWh": 111.65000486419737
+        },
+        {
+            "date": "2023-05-02",
+            "generation_kWh": 98.27114665106859,
+            "consumption_kWh": 127.3509155227694
+        },
+        {
+            "date": "2023-05-03",
+            "generation_kWh": 101.18417161873255,
+            "consumption_kWh": 141.71392756000205
+        },
+        {
+            "date": "2023-05-04",
+            "generation_kWh": 95.5835688078559,
+            "consumption_kWh": 140.90822199808795
+        },
+        {
+            "date": "2023-05-05",
+            "generation_kWh": 80.64211818304796,
+            "consumption_kWh": 94.9732575248948
+        },
+        {
+            "date": "2023-05-06",
+            "generation_kWh": 98.15333693914096,
+            "consumption_kWh": 139.08990038321159
+        },
+        {
+            "date": "2023-05-07",
+            "generation_kWh": 93.95679763068117,
+            "consumption_kWh": 105.0148639005418
+        },
+        {
+            "date": "2023-05-08",
+            "generation_kWh": 109.14610903004107,
+            "consumption_kWh": 129.3223579777199
+        },
+        {
+            "date": "2023-05-09",
+            "generation_kWh": 87.64553528320144,
+            "consumption_kWh": 125.68255536193846
+        },
+        {
+            "date": "2023-05-10",
+            "generation_kWh": 110.4910185572819,
+            "consumption_kWh": 103.62721909418701
+        },
+        {
+            "date": "2023-05-11",
+            "generation_kWh": 93.29791008134275,
+            "consumption_kWh": 133.1121974095883
+        },
+        {
+            "date": "2023-05-12",
+            "generation_kWh": 77.45511609471805,
+            "consumption_kWh": 134.69805750775816
+        },
+        {
+            "date": "2023-05-13",
+            "generation_kWh": 88.20698796000367,
+            "consumption_kWh": 108.94081101249377
+        },
+        {
+            "date": "2023-05-14",
+            "generation_kWh": 91.04694401654352,
+            "consumption_kWh": 118.3251039383794
+        },
+        {
+            "date": "2023-05-15",
+            "generation_kWh": 79.2306019448276,
+            "consumption_kWh": 138.62489115663703
+        },
+        {
+            "date": "2023-05-16",
+            "generation_kWh": 111.86408610611514,
+            "consumption_kWh": 125.99221614399224
+        },
+        {
+            "date": "2023-05-17",
+            "generation_kWh": 77.6763367035215,
+            "consumption_kWh": 116.7845447226129
+        },
+        {
+            "date": "2023-05-18",
+            "generation_kWh": 82.89932898153134,
+            "consumption_kWh": 117.32849991398497
+        },
+        {
+            "date": "2023-05-19",
+            "generation_kWh": 83.92469497164959,
+            "consumption_kWh": 122.46096775446927
+        },
+        {
+            "date": "2023-05-20",
+            "generation_kWh": 92.2706459830541,
+            "consumption_kWh": 114.51018624213768
+        },
+        {
+            "date": "2023-05-21",
+            "generation_kWh": 89.14834321304157,
+            "consumption_kWh": 126.09841244846709
+        },
+        {
+            "date": "2023-05-22",
+            "generation_kWh": 127.87466303747436,
+            "consumption_kWh": 128.8097389421456
+        },
+        {
+            "date": "2023-05-23",
+            "generation_kWh": 91.1269038373033,
+            "consumption_kWh": 137.84107450544866
+        },
+        {
+            "date": "2023-05-24",
+            "generation_kWh": 86.68532074300936,
+            "consumption_kWh": 125.48222840906698
+        },
+        {
+            "date": "2023-05-25",
+            "generation_kWh": 88.63747023640614,
+            "consumption_kWh": 110.22409560464408
+        },
+        {
+            "date": "2023-05-26",
+            "generation_kWh": 103.16015707937409,
+            "consumption_kWh": 133.00214621325281
+        },
+        {
+            "date": "2023-05-27",
+            "generation_kWh": 80.49114540672922,
+            "consumption_kWh": 134.59609086159148
+        },
+        {
+            "date": "2023-05-28",
+            "generation_kWh": 96.0556246658876,
+            "consumption_kWh": 125.40164216874112
+        },
+        {
+            "date": "2023-05-29",
+            "generation_kWh": 94.98896310065602,
+            "consumption_kWh": 141.52318210989924
+        },
+        {
+            "date": "2023-05-30",
+            "generation_kWh": 93.51686346342258,
+            "consumption_kWh": 134.06948180853468
+        },
+        {
+            "date": "2023-05-31",
+            "generation_kWh": 86.09420403924048,
+            "consumption_kWh": 129.01500454734
+        },
+        {
+            "date": "2023-06-01",
+            "generation_kWh": 100.1614137252844,
+            "consumption_kWh": 103.10694270713338
+        },
+        {
+            "date": "2023-06-02",
+            "generation_kWh": 116.15517538725516,
+            "consumption_kWh": 94.80183781469587
+        },
+        {
+            "date": "2023-06-03",
+            "generation_kWh": 104.29476817082843,
+            "consumption_kWh": 94.09147161860287
+        },
+        {
+            "date": "2023-06-04",
+            "generation_kWh": 108.27645823435074,
+            "consumption_kWh": 109.61337761802105
+        },
+        {
+            "date": "2023-06-05",
+            "generation_kWh": 125.25779766556859,
+            "consumption_kWh": 87.48459413812989
+        },
+        {
+            "date": "2023-06-06",
+            "generation_kWh": 130.73906304666855,
+            "consumption_kWh": 108.02378823219892
+        },
+        {
+            "date": "2023-06-07",
+            "generation_kWh": 114.51259429460472,
+            "consumption_kWh": 87.42500278566135
+        },
+        {
+            "date": "2023-06-08",
+            "generation_kWh": 108.95784478329293,
+            "consumption_kWh": 88.7708360456299
+        },
+        {
+            "date": "2023-06-09",
+            "generation_kWh": 104.8560758602278,
+            "consumption_kWh": 99.3572246907371
+        },
+        {
+            "date": "2023-06-10",
+            "generation_kWh": 101.04897128468706,
+            "consumption_kWh": 90.67958879211815
+        },
+        {
+            "date": "2023-06-11",
+            "generation_kWh": 109.18178511474115,
+            "consumption_kWh": 103.48477318948129
+        },
+        {
+            "date": "2023-06-12",
+            "generation_kWh": 117.0452211748031,
+            "consumption_kWh": 97.1209445082505
+        },
+        {
+            "date": "2023-06-13",
+            "generation_kWh": 116.69559727680192,
+            "consumption_kWh": 97.80272382872828
+        },
+        {
+            "date": "2023-06-14",
+            "generation_kWh": 117.67307195320744,
+            "consumption_kWh": 97.28652687051539
+        },
+        {
+            "date": "2023-06-15",
+            "generation_kWh": 130.09511981010644,
+            "consumption_kWh": 100.9420309507227
+        },
+        {
+            "date": "2023-06-16",
+            "generation_kWh": 117.16798997526199,
+            "consumption_kWh": 88.64959208670855
+        },
+        {
+            "date": "2023-06-17",
+            "generation_kWh": 99.44133141082446,
+            "consumption_kWh": 85.59167127768275
+        },
+        {
+            "date": "2023-06-18",
+            "generation_kWh": 135.98521663665082,
+            "consumption_kWh": 110.82262259423507
+        },
+        {
+            "date": "2023-06-19",
+            "generation_kWh": 106.1454618452964,
+            "consumption_kWh": 105.43756708807767
+        },
+        {
+            "date": "2023-06-20",
+            "generation_kWh": 104.14654074906757,
+            "consumption_kWh": 103.61748868873666
+        },
+        {
+            "date": "2023-06-21",
+            "generation_kWh": 113.9231132191835,
+            "consumption_kWh": 100.04857186459226
+        },
+        {
+            "date": "2023-06-22",
+            "generation_kWh": 124.41076721232628,
+            "consumption_kWh": 94.20761112490504
+        },
+        {
+            "date": "2023-06-23",
+            "generation_kWh": 93.62575473802131,
+            "consumption_kWh": 88.75851805130078
+        },
+        {
+            "date": "2023-06-24",
+            "generation_kWh": 130.80509872512394,
+            "consumption_kWh": 120.02763499801807
+        },
+        {
+            "date": "2023-06-25",
+            "generation_kWh": 130.46020249218608,
+            "consumption_kWh": 76.49334676163969
+        },
+        {
+            "date": "2023-06-26",
+            "generation_kWh": 135.107082756161,
+            "consumption_kWh": 85.9773210521245
+        },
+        {
+            "date": "2023-06-27",
+            "generation_kWh": 127.37977312690838,
+            "consumption_kWh": 72.80675353349113
+        },
+        {
+            "date": "2023-06-28",
+            "generation_kWh": 132.08197472938633,
+            "consumption_kWh": 97.68366929660738
+        },
+        {
+            "date": "2023-06-29",
+            "generation_kWh": 112.85048112791203,
+            "consumption_kWh": 99.95265418839033
+        },
+        {
+            "date": "2023-06-30",
+            "generation_kWh": 114.1217272375954,
+            "consumption_kWh": 90.23542883427834
+        },
+        {
+            "date": "2023-07-01",
+            "generation_kWh": 117.2060825875387,
+            "consumption_kWh": 85.48280619110795
+        },
+        {
+            "date": "2023-07-02",
+            "generation_kWh": 136.31278204956772,
+            "consumption_kWh": 90.90108300968043
+        },
+        {
+            "date": "2023-07-03",
+            "generation_kWh": 146.9425352826315,
+            "consumption_kWh": 99.20221187084789
+        },
+        {
+            "date": "2023-07-04",
+            "generation_kWh": 105.86284257319771,
+            "consumption_kWh": 103.24354965779649
+        },
+        {
+            "date": "2023-07-05",
+            "generation_kWh": 89.61470846894984,
+            "consumption_kWh": 96.05008786679035
+        },
+        {
+            "date": "2023-07-06",
+            "generation_kWh": 108.75291968388663,
+            "consumption_kWh": 108.49713484748247
+        },
+        {
+            "date": "2023-07-07",
+            "generation_kWh": 126.76731880991667,
+            "consumption_kWh": 90.8030323673293
+        },
+        {
+            "date": "2023-07-08",
+            "generation_kWh": 117.8959070578977,
+            "consumption_kWh": 97.65863450682176
+        },
+        {
+            "date": "2023-07-09",
+            "generation_kWh": 113.38101330439592,
+            "consumption_kWh": 77.07548378870146
+        },
+        {
+            "date": "2023-07-10",
+            "generation_kWh": 117.22421658132272,
+            "consumption_kWh": 105.34922623807621
+        },
+        {
+            "date": "2023-07-11",
+            "generation_kWh": 140.6197218630466,
+            "consumption_kWh": 87.77958544364904
+        },
+        {
+            "date": "2023-07-12",
+            "generation_kWh": 129.8356682755895,
+            "consumption_kWh": 91.98803051605437
+        },
+        {
+            "date": "2023-07-13",
+            "generation_kWh": 118.08311974453832,
+            "consumption_kWh": 82.3752702602365
+        },
+        {
+            "date": "2023-07-14",
+            "generation_kWh": 93.83155153050514,
+            "consumption_kWh": 72.12916435799917
+        },
+        {
+            "date": "2023-07-15",
+            "generation_kWh": 123.43500716424057,
+            "consumption_kWh": 102.10510016976576
+        },
+        {
+            "date": "2023-07-16",
+            "generation_kWh": 120.4116319709297,
+            "consumption_kWh": 99.00768861558177
+        },
+        {
+            "date": "2023-07-17",
+            "generation_kWh": 90.2759147356384,
+            "consumption_kWh": 98.57729076089277
+        },
+        {
+            "date": "2023-07-18",
+            "generation_kWh": 89.54014036354982,
+            "consumption_kWh": 78.98807100358918
+        },
+        {
+            "date": "2023-07-19",
+            "generation_kWh": 131.53421794589138,
+            "consumption_kWh": 104.63425299229131
+        },
+        {
+            "date": "2023-07-20",
+            "generation_kWh": 126.63364433527224,
+            "consumption_kWh": 93.92903174759549
+        },
+        {
+            "date": "2023-07-21",
+            "generation_kWh": 118.49031843698103,
+            "consumption_kWh": 98.44213066080957
+        },
+        {
+            "date": "2023-07-22",
+            "generation_kWh": 105.43993691539845,
+            "consumption_kWh": 96.86256212469705
+        },
+        {
+            "date": "2023-07-23",
+            "generation_kWh": 124.64724059774326,
+            "consumption_kWh": 96.78669081554206
+        },
+        {
+            "date": "2023-07-24",
+            "generation_kWh": 114.08659096904829,
+            "consumption_kWh": 108.04305820772191
+        },
+        {
+            "date": "2023-07-25",
+            "generation_kWh": 127.81559922053884,
+            "consumption_kWh": 96.40708639728389
+        },
+        {
+            "date": "2023-07-26",
+            "generation_kWh": 98.51101123177914,
+            "consumption_kWh": 94.41718916472311
+        },
+        {
+            "date": "2023-07-27",
+            "generation_kWh": 85.08152311684552,
+            "consumption_kWh": 92.64350186204132
+        },
+        {
+            "date": "2023-07-28",
+            "generation_kWh": 120.08410026459916,
+            "consumption_kWh": 82.34584603222642
+        },
+        {
+            "date": "2023-07-29",
+            "generation_kWh": 114.65202663199732,
+            "consumption_kWh": 90.00858945842917
+        },
+        {
+            "date": "2023-07-30",
+            "generation_kWh": 107.02769258486836,
+            "consumption_kWh": 96.06677818214112
+        },
+        {
+            "date": "2023-07-31",
+            "generation_kWh": 136.68614697209227,
+            "consumption_kWh": 102.75829194260749
+        },
+        {
+            "date": "2023-08-01",
+            "generation_kWh": 117.4747365158932,
+            "consumption_kWh": 95.72885484364184
+        },
+        {
+            "date": "2023-08-02",
+            "generation_kWh": 121.91276095469493,
+            "consumption_kWh": 99.16175305097394
+        },
+        {
+            "date": "2023-08-03",
+            "generation_kWh": 122.35987671000431,
+            "consumption_kWh": 87.13090949450043
+        },
+        {
+            "date": "2023-08-04",
+            "generation_kWh": 109.5624701770926,
+            "consumption_kWh": 81.34424686275773
+        },
+        {
+            "date": "2023-08-05",
+            "generation_kWh": 141.59588132219554,
+            "consumption_kWh": 92.07136528261475
+        },
+        {
+            "date": "2023-08-06",
+            "generation_kWh": 121.44671693421787,
+            "consumption_kWh": 84.88357062829239
+        },
+        {
+            "date": "2023-08-07",
+            "generation_kWh": 126.33376614676457,
+            "consumption_kWh": 90.78858333052332
+        },
+        {
+            "date": "2023-08-08",
+            "generation_kWh": 101.39366204253034,
+            "consumption_kWh": 86.46031531912298
+        },
+        {
+            "date": "2023-08-09",
+            "generation_kWh": 101.13079861530258,
+            "consumption_kWh": 95.17739418833001
+        },
+        {
+            "date": "2023-08-10",
+            "generation_kWh": 124.30703293696106,
+            "consumption_kWh": 94.28058822712246
+        },
+        {
+            "date": "2023-08-11",
+            "generation_kWh": 111.12783387883354,
+            "consumption_kWh": 96.31692967342107
+        },
+        {
+            "date": "2023-08-12",
+            "generation_kWh": 131.24947911362446,
+            "consumption_kWh": 102.06352302911806
+        },
+        {
+            "date": "2023-08-13",
+            "generation_kWh": 130.74973751454462,
+            "consumption_kWh": 90.44556786111116
+        },
+        {
+            "date": "2023-08-14",
+            "generation_kWh": 115.69781791616771,
+            "consumption_kWh": 90.22507025656377
+        },
+        {
+            "date": "2023-08-15",
+            "generation_kWh": 106.72415513703527,
+            "consumption_kWh": 109.83100190765745
+        },
+        {
+            "date": "2023-08-16",
+            "generation_kWh": 119.93149871687834,
+            "consumption_kWh": 93.95763677173227
+        },
+        {
+            "date": "2023-08-17",
+            "generation_kWh": 118.20860960317957,
+            "consumption_kWh": 94.77004300629788
+        },
+        {
+            "date": "2023-08-18",
+            "generation_kWh": 112.09713117643969,
+            "consumption_kWh": 88.64259463877788
+        },
+        {
+            "date": "2023-08-19",
+            "generation_kWh": 116.70813144482022,
+            "consumption_kWh": 110.692327423741
+        },
+        {
+            "date": "2023-08-20",
+            "generation_kWh": 114.18075524187898,
+            "consumption_kWh": 89.55116765894476
+        },
+        {
+            "date": "2023-08-21",
+            "generation_kWh": 104.90418106046128,
+            "consumption_kWh": 99.55017035261798
+        },
+        {
+            "date": "2023-08-22",
+            "generation_kWh": 129.48416254905297,
+            "consumption_kWh": 99.23978074374583
+        },
+        {
+            "date": "2023-08-23",
+            "generation_kWh": 111.17110838392718,
+            "consumption_kWh": 93.34684344537223
+        },
+        {
+            "date": "2023-08-24",
+            "generation_kWh": 150.99856608807892,
+            "consumption_kWh": 91.46039627578628
+        },
+        {
+            "date": "2023-08-25",
+            "generation_kWh": 110.67671668663593,
+            "consumption_kWh": 90.47034969153869
+        },
+        {
+            "date": "2023-08-26",
+            "generation_kWh": 93.54344267979906,
+            "consumption_kWh": 98.80259406045947
+        },
+        {
+            "date": "2023-08-27",
+            "generation_kWh": 102.34684851847929,
+            "consumption_kWh": 106.75495450799512
+        },
+        {
+            "date": "2023-08-28",
+            "generation_kWh": 113.94922575916185,
+            "consumption_kWh": 110.7438271445674
+        },
+        {
+            "date": "2023-08-29",
+            "generation_kWh": 125.35884456596149,
+            "consumption_kWh": 93.94205978816929
+        },
+        {
+            "date": "2023-08-30",
+            "generation_kWh": 103.68828308301576,
+            "consumption_kWh": 75.74005556565595
+        },
+        {
+            "date": "2023-08-31",
+            "generation_kWh": 123.98574167929782,
+            "consumption_kWh": 91.60160166883638
+        },
+        {
+            "date": "2023-09-01",
+            "generation_kWh": 89.63222380805162,
+            "consumption_kWh": 115.57877922670613
+        },
+        {
+            "date": "2023-09-02",
+            "generation_kWh": 90.51012505472681,
+            "consumption_kWh": 112.80960704167762
+        },
+        {
+            "date": "2023-09-03",
+            "generation_kWh": 98.79929662792986,
+            "consumption_kWh": 130.17222980051196
+        },
+        {
+            "date": "2023-09-04",
+            "generation_kWh": 79.07015782887548,
+            "consumption_kWh": 100.51736876473703
+        },
+        {
+            "date": "2023-09-05",
+            "generation_kWh": 118.06090244805927,
+            "consumption_kWh": 129.27991508210053
+        },
+        {
+            "date": "2023-09-06",
+            "generation_kWh": 87.70096742183667,
+            "consumption_kWh": 119.10469821993956
+        },
+        {
+            "date": "2023-09-07",
+            "generation_kWh": 89.20470326619372,
+            "consumption_kWh": 131.14326231075214
+        },
+        {
+            "date": "2023-09-08",
+            "generation_kWh": 105.59676909686458,
+            "consumption_kWh": 118.06354073300436
+        },
+        {
+            "date": "2023-09-09",
+            "generation_kWh": 96.91348515971934,
+            "consumption_kWh": 118.50360596439293
+        },
+        {
+            "date": "2023-09-10",
+            "generation_kWh": 92.01715357861185,
+            "consumption_kWh": 125.01153352367255
+        },
+        {
+            "date": "2023-09-11",
+            "generation_kWh": 97.80047113288538,
+            "consumption_kWh": 146.36568000639906
+        },
+        {
+            "date": "2023-09-12",
+            "generation_kWh": 97.35927791842026,
+            "consumption_kWh": 103.51669148541725
+        },
+        {
+            "date": "2023-09-13",
+            "generation_kWh": 85.58417874835048,
+            "consumption_kWh": 120.20064209322742
+        },
+        {
+            "date": "2023-09-14",
+            "generation_kWh": 89.04638252113965,
+            "consumption_kWh": 136.2906242776739
+        },
+        {
+            "date": "2023-09-15",
+            "generation_kWh": 107.86677626477149,
+            "consumption_kWh": 130.4060635180416
+        },
+        {
+            "date": "2023-09-16",
+            "generation_kWh": 96.47996604530312,
+            "consumption_kWh": 144.05259993540216
+        },
+        {
+            "date": "2023-09-17",
+            "generation_kWh": 128.60206858882603,
+            "consumption_kWh": 130.1768842346769
+        },
+        {
+            "date": "2023-09-18",
+            "generation_kWh": 100.32410723458531,
+            "consumption_kWh": 124.73975935882666
+        },
+        {
+            "date": "2023-09-19",
+            "generation_kWh": 80.51791431166976,
+            "consumption_kWh": 113.8831849815958
+        },
+        {
+            "date": "2023-09-20",
+            "generation_kWh": 102.38700274965737,
+            "consumption_kWh": 143.32590953923545
+        },
+        {
+            "date": "2023-09-21",
+            "generation_kWh": 110.19973153615918,
+            "consumption_kWh": 125.7750301924273
+        },
+        {
+            "date": "2023-09-22",
+            "generation_kWh": 72.46454118980853,
+            "consumption_kWh": 150.2710406386688
+        },
+        {
+            "date": "2023-09-23",
+            "generation_kWh": 95.7777022061505,
+            "consumption_kWh": 125.89635286240573
+        },
+        {
+            "date": "2023-09-24",
+            "generation_kWh": 94.86971738546279,
+            "consumption_kWh": 130.02667589068366
+        },
+        {
+            "date": "2023-09-25",
+            "generation_kWh": 105.63248300157456,
+            "consumption_kWh": 143.0155582128674
+        },
+        {
+            "date": "2023-09-26",
+            "generation_kWh": 85.00655123116232,
+            "consumption_kWh": 121.87944476022983
+        },
+        {
+            "date": "2023-09-27",
+            "generation_kWh": 114.14550815051501,
+            "consumption_kWh": 112.74914912699276
+        },
+        {
+            "date": "2023-09-28",
+            "generation_kWh": 103.10674661582418,
+            "consumption_kWh": 139.2380084468334
+        },
+        {
+            "date": "2023-09-29",
+            "generation_kWh": 91.18759159748366,
+            "consumption_kWh": 128.6957025885447
+        },
+        {
+            "date": "2023-09-30",
+            "generation_kWh": 84.05953502106331,
+            "consumption_kWh": 130.87370655814075
+        },
+        {
+            "date": "2023-10-01",
+            "generation_kWh": 92.58050037290495,
+            "consumption_kWh": 131.87908997014665
+        },
+        {
+            "date": "2023-10-02",
+            "generation_kWh": 91.49847340384349,
+            "consumption_kWh": 116.52015657667997
+        },
+        {
+            "date": "2023-10-03",
+            "generation_kWh": 90.36403508113682,
+            "consumption_kWh": 123.57895605127906
+        },
+        {
+            "date": "2023-10-04",
+            "generation_kWh": 92.17520259315188,
+            "consumption_kWh": 100.28782117121438
+        },
+        {
+            "date": "2023-10-05",
+            "generation_kWh": 81.6424571904965,
+            "consumption_kWh": 121.52357318679594
+        },
+        {
+            "date": "2023-10-06",
+            "generation_kWh": 88.32244787925323,
+            "consumption_kWh": 130.44306515477686
+        },
+        {
+            "date": "2023-10-07",
+            "generation_kWh": 88.950295651825,
+            "consumption_kWh": 112.35311179103007
+        },
+        {
+            "date": "2023-10-08",
+            "generation_kWh": 86.90915640436533,
+            "consumption_kWh": 126.20122302289062
+        },
+        {
+            "date": "2023-10-09",
+            "generation_kWh": 90.18655046317686,
+            "consumption_kWh": 125.05480356931037
+        },
+        {
+            "date": "2023-10-10",
+            "generation_kWh": 109.02136918477503,
+            "consumption_kWh": 124.4420272745796
+        },
+        {
+            "date": "2023-10-11",
+            "generation_kWh": 100.92211316104343,
+            "consumption_kWh": 135.5903514307613
+        },
+        {
+            "date": "2023-10-12",
+            "generation_kWh": 85.9440541879477,
+            "consumption_kWh": 96.30728312299898
+        },
+        {
+            "date": "2023-10-13",
+            "generation_kWh": 95.26186817914399,
+            "consumption_kWh": 111.20890412202566
+        },
+        {
+            "date": "2023-10-14",
+            "generation_kWh": 84.27803719950418,
+            "consumption_kWh": 120.96047239148437
+        },
+        {
+            "date": "2023-10-15",
+            "generation_kWh": 84.2515138694778,
+            "consumption_kWh": 136.17039478545155
+        },
+        {
+            "date": "2023-10-16",
+            "generation_kWh": 102.08623375111901,
+            "consumption_kWh": 126.12745348113187
+        },
+        {
+            "date": "2023-10-17",
+            "generation_kWh": 99.92729164874025,
+            "consumption_kWh": 126.71552460548179
+        },
+        {
+            "date": "2023-10-18",
+            "generation_kWh": 87.93688811893686,
+            "consumption_kWh": 99.73464083160749
+        },
+        {
+            "date": "2023-10-19",
+            "generation_kWh": 86.75768379434932,
+            "consumption_kWh": 138.45538243772452
+        },
+        {
+            "date": "2023-10-20",
+            "generation_kWh": 104.44173216605881,
+            "consumption_kWh": 143.1352257514402
+        },
+        {
+            "date": "2023-10-21",
+            "generation_kWh": 82.33569731591616,
+            "consumption_kWh": 112.71120095695021
+        },
+        {
+            "date": "2023-10-22",
+            "generation_kWh": 96.6800802064106,
+            "consumption_kWh": 112.9912351506672
+        },
+        {
+            "date": "2023-10-23",
+            "generation_kWh": 91.00668885051563,
+            "consumption_kWh": 129.54377623732057
+        },
+        {
+            "date": "2023-10-24",
+            "generation_kWh": 100.2197740396748,
+            "consumption_kWh": 130.11615436535348
+        },
+        {
+            "date": "2023-10-25",
+            "generation_kWh": 87.51547335195755,
+            "consumption_kWh": 132.65776949093208
+        },
+        {
+            "date": "2023-10-26",
+            "generation_kWh": 75.23874964872599,
+            "consumption_kWh": 124.932652244259
+        },
+        {
+            "date": "2023-10-27",
+            "generation_kWh": 82.46093192602069,
+            "consumption_kWh": 139.01234271415464
+        },
+        {
+            "date": "2023-10-28",
+            "generation_kWh": 87.59924478631437,
+            "consumption_kWh": 130.53899022420282
+        },
+        {
+            "date": "2023-10-29",
+            "generation_kWh": 91.59109054842463,
+            "consumption_kWh": 138.91809251056947
+        },
+        {
+            "date": "2023-10-30",
+            "generation_kWh": 96.62005875761112,
+            "consumption_kWh": 121.31775798444224
+        },
+        {
+            "date": "2023-10-31",
+            "generation_kWh": 77.50206765161725,
+            "consumption_kWh": 126.84055774170423
+        },
+        {
+            "date": "2023-11-01",
+            "generation_kWh": 79.68829569741983,
+            "consumption_kWh": 134.65015085005916
+        },
+        {
+            "date": "2023-11-02",
+            "generation_kWh": 84.50409076580387,
+            "consumption_kWh": 120.79965412114568
+        },
+        {
+            "date": "2023-11-03",
+            "generation_kWh": 98.41346994698962,
+            "consumption_kWh": 111.34227088590566
+        },
+        {
+            "date": "2023-11-04",
+            "generation_kWh": 86.90835985753252,
+            "consumption_kWh": 142.82547245956243
+        },
+        {
+            "date": "2023-11-05",
+            "generation_kWh": 113.3377617942436,
+            "consumption_kWh": 159.83639525676745
+        },
+        {
+            "date": "2023-11-06",
+            "generation_kWh": 85.11871169640104,
+            "consumption_kWh": 125.67659028689611
+        },
+        {
+            "date": "2023-11-07",
+            "generation_kWh": 98.27153337922789,
+            "consumption_kWh": 120.93831008611734
+        },
+        {
+            "date": "2023-11-08",
+            "generation_kWh": 80.20075389347929,
+            "consumption_kWh": 141.23825015689854
+        },
+        {
+            "date": "2023-11-09",
+            "generation_kWh": 108.69455511834724,
+            "consumption_kWh": 111.4575367695989
+        },
+        {
+            "date": "2023-11-10",
+            "generation_kWh": 99.69406061650032,
+            "consumption_kWh": 144.24608580458937
+        },
+        {
+            "date": "2023-11-11",
+            "generation_kWh": 101.86200411027731,
+            "consumption_kWh": 137.5262146201053
+        },
+        {
+            "date": "2023-11-12",
+            "generation_kWh": 99.25116462594418,
+            "consumption_kWh": 133.59373105001626
+        },
+        {
+            "date": "2023-11-13",
+            "generation_kWh": 95.28747497635402,
+            "consumption_kWh": 118.60451318452868
+        },
+        {
+            "date": "2023-11-14",
+            "generation_kWh": 102.26145116943859,
+            "consumption_kWh": 131.9544178312716
+        },
+        {
+            "date": "2023-11-15",
+            "generation_kWh": 81.58074659119572,
+            "consumption_kWh": 127.67836235765304
+        },
+        {
+            "date": "2023-11-16",
+            "generation_kWh": 113.52521441232096,
+            "consumption_kWh": 139.16105341140835
+        },
+        {
+            "date": "2023-11-17",
+            "generation_kWh": 102.54772424397922,
+            "consumption_kWh": 131.8074149462871
+        },
+        {
+            "date": "2023-11-18",
+            "generation_kWh": 88.59539874476974,
+            "consumption_kWh": 116.12180807528739
+        },
+        {
+            "date": "2023-11-19",
+            "generation_kWh": 82.23110416208328,
+            "consumption_kWh": 134.26590188719393
+        },
+        {
+            "date": "2023-11-20",
+            "generation_kWh": 93.9110528566038,
+            "consumption_kWh": 123.6328342263895
+        },
+        {
+            "date": "2023-11-21",
+            "generation_kWh": 87.93405016496729,
+            "consumption_kWh": 130.8879113501725
+        },
+        {
+            "date": "2023-11-22",
+            "generation_kWh": 102.36157185910261,
+            "consumption_kWh": 127.40163755132562
+        },
+        {
+            "date": "2023-11-23",
+            "generation_kWh": 97.79093523459841,
+            "consumption_kWh": 104.45812171202286
+        },
+        {
+            "date": "2023-11-24",
+            "generation_kWh": 104.87543941549401,
+            "consumption_kWh": 114.42038183282261
+        },
+        {
+            "date": "2023-11-25",
+            "generation_kWh": 93.60238530361958,
+            "consumption_kWh": 139.16552152569832
+        },
+        {
+            "date": "2023-11-26",
+            "generation_kWh": 107.56748494170648,
+            "consumption_kWh": 144.74984228625814
+        },
+        {
+            "date": "2023-11-27",
+            "generation_kWh": 122.90481570528429,
+            "consumption_kWh": 113.56452527315984
+        },
+        {
+            "date": "2023-11-28",
+            "generation_kWh": 111.13162560119237,
+            "consumption_kWh": 132.76310286066592
+        },
+        {
+            "date": "2023-11-29",
+            "generation_kWh": 95.86268300307614,
+            "consumption_kWh": 123.03620127445276
+        },
+        {
+            "date": "2023-11-30",
+            "generation_kWh": 99.25370913566906,
+            "consumption_kWh": 103.3018474654914
+        },
+        {
+            "date": "2023-12-01",
+            "generation_kWh": 79.73010009753128,
+            "consumption_kWh": 164.1513366921773
+        },
+        {
+            "date": "2023-12-02",
+            "generation_kWh": 74.59691945249723,
+            "consumption_kWh": 137.60544484434348
+        },
+        {
+            "date": "2023-12-03",
+            "generation_kWh": 72.46937604534503,
+            "consumption_kWh": 173.4207088704536
+        },
+        {
+            "date": "2023-12-04",
+            "generation_kWh": 72.36241868759532,
+            "consumption_kWh": 144.43282718321169
+        },
+        {
+            "date": "2023-12-05",
+            "generation_kWh": 81.68146739203362,
+            "consumption_kWh": 157.05514876407415
+        },
+        {
+            "date": "2023-12-06",
+            "generation_kWh": 71.10585512460919,
+            "consumption_kWh": 165.23580948181367
+        },
+        {
+            "date": "2023-12-07",
+            "generation_kWh": 79.5886542318401,
+            "consumption_kWh": 167.2179996995262
+        },
+        {
+            "date": "2023-12-08",
+            "generation_kWh": 74.6419091795848,
+            "consumption_kWh": 154.84203573229323
+        },
+        {
+            "date": "2023-12-09",
+            "generation_kWh": 73.22191298210538,
+            "consumption_kWh": 158.22589586981047
+        },
+        {
+            "date": "2023-12-10",
+            "generation_kWh": 62.715670105526385,
+            "consumption_kWh": 146.45464250040033
+        },
+        {
+            "date": "2023-12-11",
+            "generation_kWh": 71.10202682892006,
+            "consumption_kWh": 127.22318302520554
+        },
+        {
+            "date": "2023-12-12",
+            "generation_kWh": 78.214705784654,
+            "consumption_kWh": 172.17104705916978
+        },
+        {
+            "date": "2023-12-13",
+            "generation_kWh": 68.96324402453051,
+            "consumption_kWh": 144.16737986588637
+        },
+        {
+            "date": "2023-12-14",
+            "generation_kWh": 77.08560220157884,
+            "consumption_kWh": 126.43179256027547
+        },
+        {
+            "date": "2023-12-15",
+            "generation_kWh": 80.38633626856921,
+            "consumption_kWh": 163.22107446829023
+        },
+        {
+            "date": "2023-12-16",
+            "generation_kWh": 67.81169613769266,
+            "consumption_kWh": 163.38455957885833
+        },
+        {
+            "date": "2023-12-17",
+            "generation_kWh": 77.07135246161683,
+            "consumption_kWh": 128.89178911027693
+        },
+        {
+            "date": "2023-12-18",
+            "generation_kWh": 78.37433402597172,
+            "consumption_kWh": 136.26735640918412
+        },
+        {
+            "date": "2023-12-19",
+            "generation_kWh": 67.89165689159901,
+            "consumption_kWh": 148.9846077799906
+        },
+        {
+            "date": "2023-12-20",
+            "generation_kWh": 73.87976783362079,
+            "consumption_kWh": 145.90831271229604
+        },
+        {
+            "date": "2023-12-21",
+            "generation_kWh": 77.56800250293463,
+            "consumption_kWh": 158.323867236734
+        },
+        {
+            "date": "2023-12-22",
+            "generation_kWh": 63.09795906442183,
+            "consumption_kWh": 153.86861845720136
+        },
+        {
+            "date": "2023-12-23",
+            "generation_kWh": 68.7534221887999,
+            "consumption_kWh": 146.50330921093033
+        },
+        {
+            "date": "2023-12-24",
+            "generation_kWh": 70.04489792323034,
+            "consumption_kWh": 155.6009945317548
+        },
+        {
+            "date": "2023-12-25",
+            "generation_kWh": 72.70343577905136,
+            "consumption_kWh": 143.60159874636676
+        },
+        {
+            "date": "2023-12-26",
+            "generation_kWh": 73.96312481732835,
+            "consumption_kWh": 157.86208677476375
+        },
+        {
+            "date": "2023-12-27",
+            "generation_kWh": 72.24009209346463,
+            "consumption_kWh": 140.35032465896194
+        },
+        {
+            "date": "2023-12-28",
+            "generation_kWh": 75.80179017281897,
+            "consumption_kWh": 155.35854901582388
+        },
+        {
+            "date": "2023-12-29",
+            "generation_kWh": 68.80901517806306,
+            "consumption_kWh": 152.05728351908104
+        },
+        {
+            "date": "2023-12-30",
+            "generation_kWh": 80.85974881452927,
+            "consumption_kWh": 121.78201296885459
+        },
+        {
+            "date": "2023-12-31",
+            "generation_kWh": 84.40654059262337,
+            "consumption_kWh": 167.94743817778826
+        }
+    ],
+    "Generation": "94.03932497021466 +/- 18.998438504842323 kWh",
+    "Consumption": "125.15803447618222 +/- 24.305784350824112 kWh"
+}
