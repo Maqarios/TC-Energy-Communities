@@ -1,18 +1,35 @@
 {% extends 'base.html' %}
 
-{% block title %}Select Roof Areas{% endblock %}
+{% block title %}Roof Calculator{% endblock %}
+
+{% block content_header %}
+<h2>Roof Calculator</h2>
+{% endblock %}
 
 {% block content %}
-<form id="address-form">
-    <input type="text" name="address" id="address" placeholder="Enter Address">
-    <button type="submit">Get Image</button>
-</form>
-<div id="map-container">
-    <div id="map" style="width: {{ img_width }}px; height: {{ img_height }}px;"></div>
-</div>
-<div id="polygon-list"></div>
-<div id="error-message" style="display: none;">Place not found. Please try again.</div>
-<button id="save-polygons" style="margin-top: 20px;">Save Polygons</button>
+<section id="roof-calculator">
+    <div class="header">
+        <h2>Roof Area Selector</h2>
+        <p>Enter the address to find the location and select roof areas.</p>
+    </div>
+    <div class="form-section">
+        <form id="address-form">
+            <input type="text" name="address" id="address" placeholder="Enter Address">
+            <button type="submit" class="button primary small">Get Image</button>
+        </form>
+    </div>
+    <div id="map-container">
+        <div id="map" style="width: {{ img_width }}px; height: {{ img_height }}px;"></div>
+    </div>
+    <div id="polygon-list-container">
+        <h3>Selected Roof Areas</h3>
+        <div id="polygon-list"></div>
+    </div>
+    <div class="button-container">
+        <button id="save-polygons" class="button primary">Save Polygons</button>
+    </div>
+    <div id="error-message" class="error" style="display: none;">Place not found. Please try again.</div>
+</section>
 {% endblock %}
 
 {% block scripts %}
@@ -21,17 +38,63 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
 <style>
-    #polygon-list {
-        margin-top: 20px;
+    #roof-calculator {
+        padding: 20px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #address-form input {
+        width: 300px;
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    #address-form .button {
+        padding: 10px 20px;
+    }
+
+    #map-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #polygon-list-container {
+        text-align: center;
+        margin-bottom: 20px;
     }
 
     .polygon-item {
-        margin-bottom: 10px;
         display: flex;
+        justify-content: center;
         align-items: center;
+        margin-bottom: 10px;
     }
 
-    #error-message {
+    .polygon-item select,
+    .polygon-item input[type="text"],
+    .polygon-item button {
+        margin: 0 5px;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    .error {
+        text-align: center;
         color: red;
     }
 </style>
@@ -211,6 +274,7 @@
         }
 
         const deleteButton = document.createElement('button');
+        deleteButton.className = 'button';
         deleteButton.textContent = 'Delete';
         deleteButton.onclick = function () {
             map.removeLayer(layer);
