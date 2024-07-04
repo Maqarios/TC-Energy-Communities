@@ -160,37 +160,42 @@
                 tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
             <section class="features">
                 <article>
-                    <a href="#" class="image"><img src="static/images/pic04.jpg" alt="" /></a>
-                    <h3 class="major">Sed feugiat lorem</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.
-                    </p>
-                    <a href="#" class="special">Learn more</a>
+                    <a href="#" class="image">
+                        <div id="columnchart" style="width: 100%; height: 300px;"></div>
+                    </a>
+                    <div class="content">
+                        <h3 class="major">Sed feugiat lorem</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus
+                            ultrices.</p>
+
+                        <a href="#" class="special">Learn more</a>
+                    </div>
                 </article>
-                <article>
+                <!-- <article>
                     <a href="#" class="image"><img src="static/images/pic05.jpg" alt="" /></a>
                     <h3 class="major">Nisl placerat</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.
                     </p>
                     <a href="#" class="special">Learn more</a>
-                </article>
-                <article>
+                </article> -->
+                <!-- <article>
                     <a href="#" class="image"><img src="static/images/pic06.jpg" alt="" /></a>
                     <h3 class="major">Ante fermentum</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.
                     </p>
                     <a href="#" class="special">Learn more</a>
-                </article>
-                <article>
+                </article> -->
+                <!-- <article>
                     <a href="#" class="image"><img src="static/images/pic07.jpg" alt="" /></a>
                     <h3 class="major">Fusce consequat</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.
                     </p>
                     <a href="#" class="special">Learn more</a>
-                </article>
+                </article> -->
             </section>
-            <ul class="actions">
+            <!-- <ul class="actions">
                 <li><a href="#" class="button">Browse All</a></li>
-            </ul>
+            </ul> -->
         </div>
     </section>
 
@@ -200,20 +205,26 @@
 {% block scripts %}
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawInitialChart);
+    google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(hideAllSections);
 
-    function drawInitialChart() {
-        drawChart(150, 100);
-        drawChart2(150, 100);
-        drawChart3(150, 100);
+    function hideAllSections() {
+        document.querySelectorAll('#wrapper section').forEach(section => {
+            section.style.display = 'none';
+        });
     }
 
-    function drawChart(totalGeneration, totalConsumption) {
+    function showAllSections() {
+        document.querySelectorAll('#wrapper section').forEach(section => {
+            section.style.display = '';
+        });
+    }
+
+    function generationComsumptionChart(totalGeneration, totalConsumption) {
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Consumption (kWh)'],
+            ['Task', 'Total Consumption (kWh)'],
             ['Generation', totalGeneration],
-            ['Consumption', totalConsumption - totalGeneration]
+            ['Consumption', totalConsumption]
         ]);
 
         var options = {
@@ -226,18 +237,22 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 16,
+            fontSize: 14,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
     }
 
-    function drawChart2(totalGeneration, totalConsumption) {
+    function generationComsumptionChart2(totalGeneration, totalConsumption) {
+        if (totalGeneration > totalConsumption) {
+            totalConsumption = totalGeneration;
+        }
+
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Consumption (kWh)'],
-            ['Generation', totalGeneration],
-            ['Total Consumption', totalConsumption]
+            ['Task', 'Total Consumption (kWh)'],
+            ['PV Generation', totalGeneration],
+            ['Main Grid', totalConsumption - totalGeneration]
         ]);
 
         var options = {
@@ -250,18 +265,18 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 16,
+            fontSize: 14,
         };
 
-        var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
-        chart2.draw(data, options);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+        chart.draw(data, options);
     }
 
-    function drawChart3(totalGeneration, totalConsumption) {
+    function investmentProfitChart(initial_investment, profitEarned) {
         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Consumption (kWh)'],
-            ['Generation', totalGeneration],
-            ['Consumption', totalConsumption - totalGeneration]
+            ['Task', 'Cost ($)'],
+            ['Initial Investment', initial_investment],
+            ['Profit Earned', profitEarned]
         ]);
 
         var options = {
@@ -274,11 +289,32 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 16,
+            fontSize: 14,
         };
 
-        var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
-        chart3.draw(data, options);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+        chart.draw(data, options);
+    }
+
+    function drawColumnChart(energyCost, generationCost, consumptionCost) {
+        var data = google.visualization.arrayToDataTable([
+            ['Type', 'Amount', { role: 'style' }],
+            ['Total Energy Cost', energyCost, 'blue'],
+            ['Generation Cost', generationCost, 'green'],
+            ['Consumption Cost', consumptionCost, 'red']
+        ]);
+
+        var options = {
+            legend: 'none',
+            backgroundColor: 'auto',
+            chartArea: {
+                width: '80%',
+                height: '80%'
+            }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+        chart.draw(data, options);
     }
 
     document.getElementById('calculate-button').addEventListener('click', function () {
@@ -293,26 +329,34 @@
             document.getElementById('end-date-day').value
         );
 
-        fetch('/calculate_power_mix', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                start_date: startDate.toISOString().split('T')[0],
-                end_date: endDate.toISOString().split('T')[0]
+        if (endDate >= startDate) {
+            fetch('/calculate_power_mix', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    start_date: startDate.toISOString().split('T')[0],
+                    end_date: endDate.toISOString().split('T')[0]
+                })
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert("Error: " + data.error);
-                } else {
-                    drawChart(data.total_generation, data.total_consumption);
-                    drawChart2(data.total_generation, data.total_consumption);
-                    drawChart3(data.total_generation, data.total_consumption);
-                }
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert("Error: " + data.error);
+                        hideAllSections();
+                    } else {
+                        showAllSections();
+                        generationComsumptionChart(data.total_generation, data.total_consumption);
+                        generationComsumptionChart2(data.total_generation, data.total_consumption);
+                        investmentProfitChart(data.initial_investment, data.profit_earned);
+                        drawColumnChart(data.generation_cost + data.consumption_cost, data.generation_cost, data.consumption_cost);
+                    }
+                });
+        } else {
+            alert("End date must be greater than or equal to start date.");
+            hideAllSections();
+        }
     });
 </script>
 {% endblock %}

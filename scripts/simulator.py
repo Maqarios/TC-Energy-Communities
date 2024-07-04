@@ -19,11 +19,6 @@ from datetime import datetime, timedelta
 # Elderly stay at home period: 95% per day
 # Population density: 30% elderly, 30% families, 40% singles
 # number of apartments: 20
-# output format of json: {
-# 	Data: ...
-# 	Generation: XXX +/- XXX std kWh
-# 	Consumption: XXX +/- XXX std kWh
-# }
 
 # Parameters
 roof_area = 600
@@ -50,6 +45,19 @@ total_household_consumption_base = (
 total_daily_consumption_base = (
     total_building_consumption_base + total_household_consumption_base
 )
+
+# Cost parameters
+cost_per_sqm = 200  # Cost of PV installation per sqm
+maintenance_cost_per_year = 500  # Annual maintenance cost
+
+# Calculate the total cost
+initial_installation_cost = free_roof_area * cost_per_sqm
+total_years = (
+    datetime.strptime("2024-12-31", "%Y-%m-%d")
+    - datetime.strptime("2023-01-01", "%Y-%m-%d")
+).days / 365
+total_maintenance_cost = maintenance_cost_per_year * total_years
+total_cost = initial_installation_cost + total_maintenance_cost
 
 # Seasonal factors
 pv_generation_factors = {
@@ -134,6 +142,11 @@ output = {
     "Data": data,
     "Generation": f"{generation_stats['mean']} +/- {generation_stats['std']} kWh",
     "Consumption": f"{consumption_stats['mean']} +/- {consumption_stats['std']} kWh",
+    "PV System Cost": {
+        "Initial Installation Cost": initial_installation_cost,
+        "Total Maintenance Cost": total_maintenance_cost,
+        "Total Cost": total_cost,
+    },
 }
 
 # Save to file

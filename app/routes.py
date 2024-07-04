@@ -103,11 +103,28 @@ def calculate_power_mix():
 
     remaining_consumption = total_consumption - total_generation
 
+    # Calculate total cost and profit
+    government_price_per_kWh = 0.4  # Example price, replace with the actual price
+    government_feedin_price_per_kWh = 0.06
+    generation_cost = total_generation * government_price_per_kWh
+    consumption_cost = total_consumption * government_price_per_kWh
+
+    initial_investment = simulation_data["PV System Cost"]["Total Cost"]
+
+    if generation_cost < consumption_cost:
+        profit_earned = consumption_cost - generation_cost
+    else:
+        profit_earned = total_generation * government_feedin_price_per_kWh
+
     return flask.jsonify(
         {
-            "total_generation": total_generation,
-            "total_consumption": total_consumption,
-            "remaining_consumption": remaining_consumption,
+            "total_generation": round(total_generation),
+            "total_consumption": round(total_consumption),
+            "remaining_consumption": round(remaining_consumption),
+            "generation_cost": round(generation_cost),
+            "consumption_cost": round(consumption_cost),
+            "initial_investment": round(initial_investment),
+            "profit_earned": round(profit_earned),
         }
     )
 
