@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 # ChatGPT parameters
 # Parameters:
 # Frequency: Daily
-# Period: simulate it for January 2023
+# Period: simulate it for 2023
 # Output file: json
 # Country: Munich, Germany
 # roof area: 600 sqm
@@ -32,7 +32,7 @@ solar_radiation_base = 1.5  # kWh/m²/day (baseline for January)
 pv_efficiency = 0.15
 daily_pv_generation_base = free_roof_area * solar_radiation_base * pv_efficiency
 
-building_consumption_per_sqm_per_year = 5
+building_consumption_per_sqm_per_year = 7.3
 building_size = 600
 total_building_consumption_base = (
     building_consumption_per_sqm_per_year * building_size
@@ -91,8 +91,8 @@ def get_factors(month):
 
 
 # Simulate for a given period (January 2023 in this case)
-start_date = "2023-01-01"
-end_date = "2023-12-31"
+start_date = "2020-01-01"
+end_date = "2024-12-31"
 dates = pd.date_range(start=start_date, end=end_date)
 data = []
 
@@ -137,7 +137,7 @@ output = {
 }
 
 # Save to file
-output_file_path = "data/simulation.json"
+output_file_path = "app/data/simulation.json"
 with open(output_file_path, "w") as f:
     json.dump(output, f, indent=4)
 

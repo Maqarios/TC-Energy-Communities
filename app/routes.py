@@ -2,6 +2,7 @@ import os
 import flask
 import googlemaps
 import json
+from datetime import datetime
 
 ZOOM = 20
 IMG_WIDTH = 640
@@ -19,9 +20,9 @@ def index():
     return flask.render_template("index.html")
 
 
-@main.route("/other_page")
-def other_page():
-    return flask.render_template("other_page.html")
+@main.route("/power_mix")
+def power_mix():
+    return flask.render_template("power_mix.html")
 
 
 @main.route("/roof_calculator")
@@ -71,6 +72,44 @@ def save_polygons():
         json.dump(polygons, f, indent=2)
 
     return flask.jsonify({"success": True, "file_path": file_path})
+
+
+@main.route("/calculate_power_mix", methods=["POST"])
+def calculate_power_mix():
+    data = flask.request.json
+    start_date_str = data.get("start_date")
+    end_date_str = data.get("end_date")
+
+    if not start_date_str or not end_date_str:
+        return flask.jsonify({"error": "Invalid date range"}), 400
+
+    try:
+        start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
+        end_date = datetime.strptime(end_date_str, "%Y-%m-%d")
+    except ValueError:
+        return flask.jsonify({"error": "Invalid date format"}), 400
+
+    with open(os.path.join(DATA_DIR, "simulation.json"), "r") as f:
+        simulation_data = json.load(f)
+
+    total_generation = 0
+    total_consumption = 0
+
+    for record in simulation_data["Data"]:
+        record_date = datetime.strptime(record["date"], "%Y-%m-%d")
+        if start_date <= record_date <= end_date:
+            total_generation += record["generation_kWh"]
+            total_consumption += record["consumption_kWh"]
+
+    remaining_consumption = total_consumption - total_generation
+
+    return flask.jsonify(
+        {
+            "total_generation": total_generation,
+            "total_consumption": total_consumption,
+            "remaining_consumption": remaining_consumption,
+        }
+    )
 
 
 def generate_static_map_url(lat, lng):
