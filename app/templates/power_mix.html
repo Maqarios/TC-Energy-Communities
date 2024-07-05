@@ -111,9 +111,11 @@
             </a>
             <div class="content">
                 <h2 class="major">Generation, Consumption & Excess</h2>
-                <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis
-                    non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus.
-                    Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+                <p>This pie chart provides a visual representation of energy generation and consumption, highlighting
+                    the proportion of energy that is consumed versus the amount generated. The green segment represents
+                    the generated energy, while the red segment illustrates the consumed energy. If the amount of the
+                    generated energy is greater than the consumed another segment is shown in orange. The excess energy
+                    is being sold to the main grid.</p>
                 <a href="#" class="special">Learn more</a>
             </div>
         </div>
@@ -127,9 +129,10 @@
             </a>
             <div class="content">
                 <h2 class="major">Energy Sources</h2>
-                <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis
-                    non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus.
-                    Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+                <p>This chart focuses on the role and importance of the energy mix. The consumption from the previous
+                    pie chart is split to show the contribution of the different energy sources. Energy produced using
+                    PV is visualized in green, and energy from the main grid is in orange. If the energy produced using
+                    PV isn’t sufficient to cover the whole consumption energy from the main grid is being used. </p>
                 <a href="#" class="special">Learn more</a>
             </div>
         </div>
@@ -143,9 +146,11 @@
             </a>
             <div class="content">
                 <h2 class="major">Investment & Profit</h2>
-                <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis
-                    non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus.
-                    Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
+                <p>This chart illustrates the relationship between initial investment and profit over the entire
+                    duration of the project. If the profit earned does not cover the initial investment, the chart shows
+                    the profit earned (calculated as multiplication of generation and cost) and the net investment
+                    (initial investment minus profit). If the profit is greater than the initial investment, the chart
+                    displays the net profit, which is calculated as profit minus the initial investment.</p>
                 <a href="#" class="special">Learn more</a>
             </div>
         </div>
@@ -154,19 +159,28 @@
     <!-- Four -->
     <section id="four" class="wrapper alt style1">
         <div class="inner">
-            <h2 class="major">Vitae phasellus</h2>
+            <!-- <h2 class="major">Vitae phasellus</h2>
             <p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce
                 tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in
-                tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
+                tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p> -->
             <section class="features">
                 <article>
                     <a href="#" class="image">
                         <div id="columnchart" style="width: 100%; height: 300px;"></div>
                     </a>
                     <div class="content">
-                        <h3 class="major">Sed feugiat lorem</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus
-                            ultrices.</p>
+                        <h3 class="major">Cost Analysis</h3>
+                        <p>This bar diagram visualizes the breakdown of energy costs into three key components:
+                            Total Consumption Cost: Represented by the red bar, this shows the overall cost of energy
+                            consumed. This bar is the sum of the green and the orange bar. In scenarios where generation
+                            exceeds consumption, such as during the summer, this value is equal to the generation cost.
+                            Generation Cost: The green bar indicates the cost associated with energy produced by the
+                            photovoltaic (PV) system. This segment highlights the contribution of renewable energy to
+                            the overall energy mix. Main Grid Cost: Shown by the orange bar, this represents the cost of
+                            energy sourced from the main grid. This is utilized when the energy produced by the PV
+                            system is insufficient to meet total consumption. This chart effectively demonstrates the
+                            cost dynamics between total energy consumption, PV generation, and main grid supply,
+                            emphasizing the cost efficiency and reliance on different energy sources.</p>
 
                         <a href="#" class="special">Learn more</a>
                     </div>
@@ -252,7 +266,7 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 10,
+            fontSize: 12,
             colors: colors
         };
 
@@ -281,7 +295,7 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 10,
+            fontSize: 12,
             colors: ['green', 'darkorange']
         };
 
@@ -299,13 +313,13 @@
                 ['Net Initial Investement', initialInvestment - profitEarned],
                 ['Profit Earned', profitEarned]
             ]);
-            colors = ['blue', 'lightgreen'];
+            colors = ['blue', 'darkgreen'];
         } else {
             data = google.visualization.arrayToDataTable([
                 ['Task', 'Cost ($)'],
                 ['Net Profit Earned', profitEarned - initialInvestment]
             ]);
-            colors = ['lightgreen'];
+            colors = ['darkgreen'];
         }
 
         var options = {
@@ -318,7 +332,7 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 10,
+            fontSize: 12,
             colors: colors
         };
 
