@@ -114,7 +114,9 @@ def calculate_power_mix():
     if generation_cost < consumption_cost:
         profit_earned = consumption_cost - generation_cost
     else:
-        profit_earned = total_generation * government_feedin_price_per_kWh
+        profit_earned = (
+            total_generation - total_consumption
+        ) * government_feedin_price_per_kWh + consumption_cost
 
     return flask.jsonify(
         {
