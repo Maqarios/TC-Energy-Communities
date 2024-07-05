@@ -110,7 +110,7 @@
                 <div id="piechart" style="width: 300px; height: 300px;"></div>
             </a>
             <div class="content">
-                <h2 class="major">Magna arcu feugiat</h2>
+                <h2 class="major">Generation, Consumption & Excess</h2>
                 <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis
                     non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus.
                     Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
@@ -126,7 +126,7 @@
                 <div id="piechart2" style="width: 300px; height: 300px;"></div>
             </a>
             <div class="content">
-                <h2 class="major">Tempus adipiscing</h2>
+                <h2 class="major">Energy Sources</h2>
                 <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis
                     non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus.
                     Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
@@ -142,7 +142,7 @@
                 <div id="piechart3" style="width: 300px; height: 300px;"></div>
             </a>
             <div class="content">
-                <h2 class="major">Nullam dignissim</h2>
+                <h2 class="major">Investment & Profit</h2>
                 <p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis
                     non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus.
                     Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
@@ -221,11 +221,26 @@
     }
 
     function generationComsumptionChart(totalGeneration, totalConsumption) {
-        var data = google.visualization.arrayToDataTable([
-            ['Task', 'Total Consumption (kWh)'],
-            ['Generation', totalGeneration],
-            ['Consumption', totalConsumption]
-        ]);
+        var data;
+        var colors;
+
+
+        if (totalGeneration <= totalConsumption) {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Consumption & Generation (kWh)'],
+                ['Generation', totalGeneration],
+                ['Consumption', totalConsumption]
+            ]);
+            colors = ['green', 'red'];
+        } else {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Consumption & Generation (kWh)'],
+                ['Generation', totalConsumption],
+                ["Sold to Main Grid", totalGeneration - totalConsumption],
+                ['Consumption', totalConsumption]
+            ]);
+            colors = ['green', 'orange', 'red'];
+        }
 
         var options = {
             legend: 'none',
@@ -237,7 +252,8 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 14,
+            fontSize: 10,
+            colors: colors
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -265,19 +281,32 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 14,
+            fontSize: 10,
+            colors: ['green', 'darkorange']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
         chart.draw(data, options);
     }
 
-    function investmentProfitChart(initial_investment, profitEarned) {
-        var data = google.visualization.arrayToDataTable([
-            ['Task', 'Cost ($)'],
-            ['Initial Investment', initial_investment],
-            ['Profit Earned', profitEarned]
-        ]);
+    function investmentProfitChart(initialInvestment, profitEarned) {
+        var data;
+        var colors;
+
+        if (initialInvestment > profitEarned) {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Cost ($)'],
+                ['Net Initial Investement', initialInvestment - profitEarned],
+                ['Profit Earned', profitEarned]
+            ]);
+            colors = ['blue', 'lightgreen'];
+        } else {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Cost ($)'],
+                ['Net Profit Earned', profitEarned - initialInvestment]
+            ]);
+            colors = ['lightgreen'];
+        }
 
         var options = {
             legend: 'none',
@@ -289,24 +318,29 @@
                 width: '99%',
                 height: '99%'
             },
-            fontSize: 14,
+            fontSize: 10,
+            colors: colors
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
         chart.draw(data, options);
     }
 
-    function drawColumnChart(energyCost, generationCost, consumptionCost) {
+    function drawColumnChart(consumptionCost, generationCost) {
+        if (consumptionCost < generationCost) {
+            generationCost = consumptionCost;
+        }
+
         var data = google.visualization.arrayToDataTable([
             ['Type', 'Amount', { role: 'style' }],
-            ['Total Energy Cost', energyCost, 'blue'],
+            ['Total Consumption Cost', consumptionCost, 'red'],
             ['Generation Cost', generationCost, 'green'],
-            ['Consumption Cost', consumptionCost, 'red']
+            ['Main Grid Cost', consumptionCost - generationCost, 'orange']
         ]);
 
         var options = {
             legend: 'none',
-            backgroundColor: 'auto',
+            backgroundColor: 'transparent',
             chartArea: {
                 width: '80%',
                 height: '80%'
@@ -350,7 +384,7 @@
                         generationComsumptionChart(data.total_generation, data.total_consumption);
                         generationComsumptionChart2(data.total_generation, data.total_consumption);
                         investmentProfitChart(data.initial_investment, data.profit_earned);
-                        drawColumnChart(data.generation_cost + data.consumption_cost, data.generation_cost, data.consumption_cost);
+                        drawColumnChart(data.consumption_cost, data.generation_cost);
                     }
                 });
         } else {

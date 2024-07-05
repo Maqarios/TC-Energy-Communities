@@ -5,16 +5,25 @@
 {% block content_header %}
 <h2>Roof Area Selector</h2>
 <p>Enter the address to find the location and select roof areas.</p>
+<div class="row">
+    <div class="col-6 col-12">
+        <ul class="actions fit" name="start-date" id="start-date">
+            <li>
+                <div class="col-6 col-12">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" placeholder="Enter Address">
+                </div>
+            </li>
+        </ul>
+        <ul class="col-6 actions">
+            <li><button id="get-image" class="button">Get Satellite Image</button></li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
 <section id="roof-calculator">
-    <div class="form-section">
-        <form id="address-form">
-            <input type="text" name="address" id="address" placeholder="Enter Address">
-            <button type="submit" class="button primary small">Get Image</button>
-        </form>
-    </div>
     <div class="container">
         <div id="map-container">
             <div id="map" style="width: {{ img_width }}px; height: {{ img_height }}px;"></div>
@@ -168,11 +177,14 @@
     let drawnItems;
     let polygonCount = 0;
 
-    document.getElementById('address-form').addEventListener('submit', function (e) {
-        e.preventDefault();
+    document.getElementById('get-image').addEventListener('click', function () {
+        const address = document.getElementById('address').value;
         fetch('/get_image', {
             method: 'POST',
-            body: new FormData(this)
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "address": address }),
         })
             .then(response => response.json())
             .then(data => {
@@ -194,6 +206,7 @@
                 }
             });
     });
+
 
     function initializeMap(imageUrl, imgWidth, imgHeight) {
         if (map) {

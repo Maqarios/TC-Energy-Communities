@@ -47,7 +47,7 @@ total_daily_consumption_base = (
 )
 
 # Cost parameters
-cost_per_sqm = 200  # Cost of PV installation per sqm
+cost_per_sqm = 150  # Cost of PV installation per sqm
 maintenance_cost_per_year = 500  # Annual maintenance cost
 
 # Calculate the total cost

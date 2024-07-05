@@ -34,12 +34,14 @@ def roof_calculator():
 
 @main.route("/get_image", methods=["POST"])
 def get_image():
-    address = flask.request.form["address"]
+    data = flask.request.get_json()
+    address = data.get("address")
     geocode_result = gmaps.geocode(address)
     if not geocode_result:
         return flask.jsonify({"error": "Place not found"})
 
     flask.session["place_id"] = geocode_result[0]["place_id"]
+    flask.session["address"] = address
 
     location = geocode_result[0]["geometry"]["location"]
     image_url = generate_static_map_url(location["lat"], location["lng"])
@@ -111,12 +113,13 @@ def calculate_power_mix():
 
     initial_investment = simulation_data["PV System Cost"]["Total Cost"]
 
-    if generation_cost < consumption_cost:
-        profit_earned = consumption_cost - generation_cost
-    else:
-        profit_earned = (
-            total_generation - total_consumption
-        ) * government_feedin_price_per_kWh + consumption_cost
+    profit_earned = total_generation * government_price_per_kWh
+    # if generation_cost < consumption_cost:
+    #     profit_earned = consumption_cost - generation_cost
+    # else:
+    #     profit_earned = (
+    #         total_generation - total_consumption
+    #     ) * government_feedin_price_per_kWh + consumption_cost
 
     return flask.jsonify(
         {
