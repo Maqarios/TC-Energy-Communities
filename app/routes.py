@@ -9,7 +9,8 @@ IMG_WIDTH = 640
 IMG_HEIGHT = 640
 
 # Define the data directory
-DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+# DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+DATA_DIR = os.path.join("/tmp")
 
 main = flask.Blueprint("main", __name__)
 gmaps = googlemaps.Client(key=os.getenv("GOOGLE_API_KEY"))
