@@ -3,21 +3,66 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>{% block title %}Flask App{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}">
+    </noscript>
     {% block head %}{% endblock %}
 </head>
 
-<body>
-    <nav>
-        <a href="{{ url_for('main.index') }}">Home</a>
-        <a href="{{ url_for('main.other_page') }}">Other Page</a>
-        <a href="{{ url_for('main.roof_calculator') }}">Roof Calculator</a>
-    </nav>
-    <div class="container">
-        {% block content %}{% endblock %}
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="{{ url_for('main.index') }}">Solar Ease</a></h1>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <div class="inner">
+                <h2>Menu</h2>
+                <ul class="links">
+                    <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                    <li><a href="{{ url_for('main.power_mix') }}">Power Mix</a></li>
+                    <li><a href="{{ url_for('main.roof_calculator') }}">Roof Calculator</a></li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </nav>
+
+        <section id="banner">
+
+            <div class="inner">
+                <div>
+                    {% block content_header %}{% endblock %}
+                </div>
+        </section>
+
+        <section id="wrapper">
+            <div class="wrapper">
+                {% block content %}{% endblock %}
+            </div>
+        </section>
+
+
+
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     {% block scripts %}{% endblock %}
 </body>
 
