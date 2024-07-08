@@ -49,9 +49,11 @@
             </div>
         </div>
     </div>
-    <div class="button-container">
-        <button id="save-polygons" class="button primary">Save Polygons</button>
-    </div>
+    <ul class="actions fir">
+        <li>
+            <button id="calculate" class="button">Calculate</button>
+        </li>
+    </ul>
     <div id="error-message" class="error" style="display: none;">Place not found. Please try again.</div>
 </section>
 {% endblock %}
@@ -197,16 +199,15 @@
                     document.getElementById('error-message').style.display = 'none';
                     document.getElementById('map-container').style.display = 'block';
                     initializeMap(data.image_url, data.width, data.height);
-                    if (data.polygons && data.polygons.length > 0) {
+                    if (data.roofs && data.roofs.length > 0) {
                         document.getElementById('polygon-list-container').style.display = 'block';
-                        data.polygons.forEach(polygon => {
+                        data.roofs.forEach(polygon => {
                             addPolygonToMap(polygon);
                         });
                     }
                 }
             });
     });
-
 
     function initializeMap(imageUrl, imgWidth, imgHeight) {
         if (map) {
@@ -314,7 +315,6 @@
         visibilityCheckbox.onchange = function () {
             if (this.checked) {
                 map.addLayer(layer);
-
             } else {
                 map.removeLayer(layer);
             }
@@ -322,7 +322,6 @@
         const visibilityLabel = document.createElement('label');
         visibilityLabel.setAttribute('for', `visibility-${polygonId}`);
         visibilityLabel.className = 'visibility-checkbox-label';
-        <!-- visibilityLabel.textContent = 'Visible'; // Add text content for the label -->
         visibilityCheckboxContainer.appendChild(visibilityCheckbox);
         visibilityCheckboxContainer.appendChild(visibilityLabel);
         visibilityCell.appendChild(visibilityCheckboxContainer);
@@ -332,7 +331,8 @@
         input.type = 'text';
         input.value = polygonId;
         input.onchange = function () {
-            layer.bindTooltip(this.value).openTooltip();
+            const existingTooltip = layer.getTooltip() ? layer.getTooltip().getContent().split('<br>')[1] : "";
+            layer.bindTooltip("Name: " + this.value + "<br>" + existingTooltip).openTooltip();
         };
         nameCell.appendChild(input);
 
@@ -398,16 +398,22 @@
 
         // Show the polygon list container
         document.getElementById('polygon-list-container').style.display = 'block';
+
+        // Initial tooltip with just the name
+        layer.bindTooltip("Name: " + polygonId).openTooltip();
     }
 
-    document.getElementById('save-polygons').addEventListener('click', function () {
+    document.getElementById('calculate').addEventListener('click', function () {
         const address = document.getElementById('address').value;
         if (!address) {
             alert("Please enter an address first.");
             return;
         }
 
-        const polygons = [];
+        const roofs = [];
+        const obstacles = [];
+        const roofs_to_leaflet_ids = new Object();
+
         document.querySelectorAll('#polygon-list tr').forEach(item => {
             const polygonId = item.id;
             const name = item.querySelector('input[type="text"]').value;
@@ -419,35 +425,70 @@
             const layerId = parseInt(item.getAttribute('data-layer-id'), 10);
             const layer = drawnItems.getLayers().find(layer => layer._leaflet_id === layerId);
             if (layer && layer._latlngs) {
-                const coordinates = layer._latlngs[0].map(latlng => [latlng.lat, latlng.lng]);
+                const coordinates = layer.getLatLngs()[0].map(latlng => [latlng.lat, latlng.lng]);
+                roofs_to_leaflet_ids[polygonId] = layerId;
 
-                polygons.push({
-                    name,
-                    roofType,
-                    tilt,
-                    azimuth,
-                    featureType,
-                    coordinates
-                });
+                if (featureType === 'roof') {
+                    roofs.push({
+                        id: polygonId,
+                        name,
+                        roofType,
+                        tilt,
+                        azimuth,
+                        featureType,
+                        coordinates
+                    });
+                } else {
+                    obstacles.push({
+                        id: polygonId,
+                        name,
+                        roofType,
+                        tilt,
+                        azimuth,
+                        featureType,
+                        coordinates
+                    });
+                }
             }
         });
 
-        fetch('/save_polygons', {
+        fetch('/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 address,
-                polygons
+                roofs,
+                obstacles
             })
         })
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
-                    alert("Error saving polygons: " + data.error);
+                    alert("Error: " + data.error);
                 } else {
-                    alert("Polygons saved successfully to " + data.file_path);
+                    // Clear existing rectangles
+                    drawnItems.eachLayer(function (layer) {
+                        if (layer.options.color === 'black') {
+                            drawnItems.removeLayer(layer);
+                        }
+                    });
+
+                    // Add estimated rectangles to the map
+                    data.estimated_rectangles.forEach(rectangleData => {
+                        const rectangle = L.polygon(rectangleData.coordinates, { color: 'black' });
+                        drawnItems.addLayer(rectangle);
+                    });
+
+                    // Update tooltips with area and roof_kWp for each roof polygon
+                    data.roofs.forEach(polygon => {
+                        console.log(drawnItems.getLayers())
+                        const layer = drawnItems.getLayers().find(layer => layer._leaflet_id === parseInt(roofs_to_leaflet_ids[polygon.id], 10));
+                        const area = polygon.area_sqm;
+                        const roof_kWp = polygon.roof_kWp;
+                        layer.bindTooltip("Name: " + polygon.name + "<br>Area: " + area.toFixed(2) + " sqm<br>Power: " + roof_kWp.toFixed(2) + " kWp").openTooltip();
+                    });
                 }
             });
     });
