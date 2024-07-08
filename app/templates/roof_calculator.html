@@ -1,18 +1,59 @@
 {% extends 'base.html' %}
 
-{% block title %}Select Roof Areas{% endblock %}
+{% block title %}Roof Calculator{% endblock %}
+
+{% block content_header %}
+<h2>Roof Area Selector</h2>
+<p>Enter the address to find the location and select roof areas.</p>
+<div class="row">
+    <div class="col-6 col-12">
+        <ul class="actions fit" name="start-date" id="start-date">
+            <li>
+                <div class="col-6 col-12">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" placeholder="Enter Address">
+                </div>
+            </li>
+        </ul>
+        <ul class="col-6 actions">
+            <li><button id="get-image" class="button">Get Satellite Image</button></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
 
 {% block content %}
-<form id="address-form">
-    <input type="text" name="address" id="address" placeholder="Enter Address">
-    <button type="submit">Get Image</button>
-</form>
-<div id="map-container">
-    <div id="map" style="width: {{ img_width }}px; height: {{ img_height }}px;"></div>
-</div>
-<div id="polygon-list"></div>
-<div id="error-message" style="display: none;">Place not found. Please try again.</div>
-<button id="save-polygons" style="margin-top: 20px;">Save Polygons</button>
+<section id="roof-calculator">
+    <div class="container">
+        <div id="map-container">
+            <div id="map" style="width: {{ img_width }}px; height: {{ img_height }}px;"></div>
+        </div>
+        <div id="polygon-list-container" style="display: none;">
+            <h3>Selected Roof Areas</h3>
+            <div class="table-wrapper">
+                <table class="alt" id="polygon-table">
+                    <thead>
+                        <tr>
+                            <th>Visibility</th>
+                            <th>Name</th>
+                            <th>Feature Type</th>
+                            <th>Roof Type</th>
+                            <th>Tilt</th>
+                            <th>Azimuth</th>
+                        </tr>
+                    </thead>
+                    <tbody id="polygon-list">
+                        <!-- Polygon items will be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button id="save-polygons" class="button primary">Save Polygons</button>
+    </div>
+    <div id="error-message" class="error" style="display: none;">Place not found. Please try again.</div>
+</section>
 {% endblock %}
 
 {% block scripts %}
@@ -21,18 +62,114 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
 <style>
-    #polygon-list {
-        margin-top: 20px;
+    #roof-calculator {
+        padding: 20px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-section {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    #address-form input {
+        width: 300px;
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    #address-form .button {
+        padding: 10px 20px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #map-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    #map {
+        width: 100%;
+        height: auto;
+
+        max-width: {
+                {
+                img_width
+            }
+        }
+
+        px;
+
+        max-height: {
+                {
+                img_height
+            }
+        }
+
+        px;
+    }
+
+    #polygon-list-container {
+        text-align: center;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .polygon-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-bottom: 10px;
+    }
+
+    .polygon-item select,
+    .polygon-item input[type="text"],
+    .polygon-item button {
+        margin: 0 5px;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    .error {
+        text-align: center;
+        color: red;
+    }
+
+    .visibility-checkbox-container {
         display: flex;
         align-items: center;
     }
 
-    #error-message {
-        color: red;
+    .visibility-checkbox-label {
+        margin-left: 5px;
+    }
+
+    @media (max-width: 768px) {
+        #map {
+            width: 100%;
+            height: auto;
+        }
     }
 </style>
 <script>
@@ -40,23 +177,28 @@
     let drawnItems;
     let polygonCount = 0;
 
-    document.getElementById('address-form').addEventListener('submit', function (e) {
-        e.preventDefault();
+    document.getElementById('get-image').addEventListener('click', function () {
+        const address = document.getElementById('address').value;
         fetch('/get_image', {
             method: 'POST',
-            body: new FormData(this)
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "address": address }),
         })
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
                     document.getElementById('error-message').style.display = 'block';
                     document.getElementById('map-container').style.display = 'none';
+                    document.getElementById('polygon-list-container').style.display = 'none';
                     document.getElementById('polygon-list').innerHTML = '';
                 } else {
                     document.getElementById('error-message').style.display = 'none';
                     document.getElementById('map-container').style.display = 'block';
                     initializeMap(data.image_url, data.width, data.height);
                     if (data.polygons && data.polygons.length > 0) {
+                        document.getElementById('polygon-list-container').style.display = 'block';
                         data.polygons.forEach(polygon => {
                             addPolygonToMap(polygon);
                         });
@@ -64,6 +206,7 @@
                 }
             });
     });
+
 
     function initializeMap(imageUrl, imgWidth, imgHeight) {
         if (map) {
@@ -118,6 +261,17 @@
             drawnItems.addLayer(layer);
             addPolygonItem(polygonId, layer);
         });
+
+        map.on('draw:deleted', function (e) {
+            e.layers.eachLayer(function (layer) {
+                const polygonId = layer._leaflet_id;
+                const row = document.querySelector(`tr[data-layer-id='${polygonId}']`);
+                if (row) {
+                    row.remove();
+                }
+            });
+            togglePolygonListContainer();
+        });
     }
 
     function addPolygonToMap(polygon) {
@@ -133,6 +287,8 @@
         polygonItem.querySelector('select.tilt').value = polygon.tilt;
         polygonItem.querySelector('select.azimuth').value = polygon.azimuth;
         polygonItem.querySelector('select.feature-type').value = polygon.featureType;
+
+        document.getElementById('polygon-list-container').style.display = 'block';
     }
 
     function generateUniquePolygonId() {
@@ -142,24 +298,45 @@
 
     function addPolygonItem(polygonId, layer) {
         const polygonList = document.getElementById('polygon-list');
-        const div = document.createElement('div');
-        div.className = 'polygon-item';
-        div.id = polygonId;
+        const row = document.createElement('tr');
+        row.id = polygonId;
 
         // Set a custom data attribute to link the HTML element with the Leaflet layer
-        div.setAttribute('data-layer-id', layer._leaflet_id);
+        row.setAttribute('data-layer-id', layer._leaflet_id);
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = true;
-        checkbox.onchange = function () {
+        const visibilityCell = document.createElement('td');
+        const visibilityCheckboxContainer = document.createElement('div');
+        const visibilityCheckbox = document.createElement('input');
+        visibilityCheckbox.type = 'checkbox';
+        visibilityCheckbox.id = `visibility-${polygonId}`;
+        visibilityCheckbox.name = `visibility-${polygonId}`;
+        visibilityCheckbox.checked = true;
+        visibilityCheckbox.onchange = function () {
             if (this.checked) {
                 map.addLayer(layer);
+
             } else {
                 map.removeLayer(layer);
             }
         };
+        const visibilityLabel = document.createElement('label');
+        visibilityLabel.setAttribute('for', `visibility-${polygonId}`);
+        visibilityLabel.className = 'visibility-checkbox-label';
+        <!-- visibilityLabel.textContent = 'Visible'; // Add text content for the label -->
+        visibilityCheckboxContainer.appendChild(visibilityCheckbox);
+        visibilityCheckboxContainer.appendChild(visibilityLabel);
+        visibilityCell.appendChild(visibilityCheckboxContainer);
 
+        const nameCell = document.createElement('td');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = polygonId;
+        input.onchange = function () {
+            layer.bindTooltip(this.value).openTooltip();
+        };
+        nameCell.appendChild(input);
+
+        const featureTypeCell = document.createElement('td');
         const featureTypeSelect = document.createElement('select');
         featureTypeSelect.className = 'feature-type';
         const roofOption = document.createElement('option');
@@ -170,14 +347,9 @@
         obstacleOption.value = 'obstacle';
         obstacleOption.text = 'Obstacle';
         featureTypeSelect.appendChild(obstacleOption);
+        featureTypeCell.appendChild(featureTypeSelect);
 
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.value = polygonId;
-        input.onchange = function () {
-            layer.bindTooltip(this.value).openTooltip();
-        };
-
+        const roofTypeCell = document.createElement('td');
         const roofTypeSelect = document.createElement('select');
         roofTypeSelect.className = 'roof-type';
         const flatOption = document.createElement('option');
@@ -188,7 +360,9 @@
         tiltOption.value = 'tilt';
         tiltOption.text = 'Tilt';
         roofTypeSelect.appendChild(tiltOption);
+        roofTypeCell.appendChild(roofTypeSelect);
 
+        const tiltCell = document.createElement('td');
         const tiltSelect = document.createElement('select');
         tiltSelect.className = 'tilt';
         for (let i = 0; i <= 50; i++) {
@@ -200,7 +374,9 @@
             }
             tiltSelect.appendChild(option);
         }
+        tiltCell.appendChild(tiltSelect);
 
+        const azimuthCell = document.createElement('td');
         const azimuthSelect = document.createElement('select');
         azimuthSelect.className = 'azimuth';
         for (let i = 0; i < 360; i++) {
@@ -209,22 +385,19 @@
             option.text = i;
             azimuthSelect.appendChild(option);
         }
+        azimuthCell.appendChild(azimuthSelect);
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = function () {
-            map.removeLayer(layer);
-            div.remove();
-        };
+        row.appendChild(visibilityCell);
+        row.appendChild(nameCell);
+        row.appendChild(featureTypeCell);
+        row.appendChild(roofTypeCell);
+        row.appendChild(tiltCell);
+        row.appendChild(azimuthCell);
 
-        div.appendChild(checkbox);
-        div.appendChild(featureTypeSelect);
-        div.appendChild(input);
-        div.appendChild(roofTypeSelect);
-        div.appendChild(tiltSelect);
-        div.appendChild(azimuthSelect);
-        div.appendChild(deleteButton);
-        polygonList.appendChild(div);
+        polygonList.appendChild(row);
+
+        // Show the polygon list container
+        document.getElementById('polygon-list-container').style.display = 'block';
     }
 
     document.getElementById('save-polygons').addEventListener('click', function () {
@@ -235,7 +408,7 @@
         }
 
         const polygons = [];
-        document.querySelectorAll('.polygon-item').forEach(item => {
+        document.querySelectorAll('#polygon-list tr').forEach(item => {
             const polygonId = item.id;
             const name = item.querySelector('input[type="text"]').value;
             const roofType = item.querySelector('select.roof-type').value;
@@ -278,5 +451,15 @@
                 }
             });
     });
+
+    function togglePolygonListContainer() {
+        const polygonList = document.getElementById('polygon-list');
+        const polygonListContainer = document.getElementById('polygon-list-container');
+        if (polygonList.children.length === 0) {
+            polygonListContainer.style.display = 'none';
+        } else {
+            polygonListContainer.style.display = 'block';
+        }
+    }
 </script>
 {% endblock %}

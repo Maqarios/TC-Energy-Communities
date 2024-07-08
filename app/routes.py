@@ -2,13 +2,15 @@ import os
 import flask
 import googlemaps
 import json
+from datetime import datetime
 
 ZOOM = 20
 IMG_WIDTH = 640
 IMG_HEIGHT = 640
 
 # Define the data directory
-DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+# DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+DATA_DIR = os.path.join("/tmp")
 
 main = flask.Blueprint("main", __name__)
 gmaps = googlemaps.Client(key=os.getenv("GOOGLE_API_KEY"))
@@ -19,9 +21,9 @@ def index():
     return flask.render_template("index.html")
 
 
-@main.route("/other_page")
-def other_page():
-    return flask.render_template("other_page.html")
+@main.route("/power_mix")
+def power_mix():
+    return flask.render_template("power_mix.html")
 
 
 @main.route("/roof_calculator")
@@ -33,12 +35,14 @@ def roof_calculator():
 
 @main.route("/get_image", methods=["POST"])
 def get_image():
-    address = flask.request.form["address"]
+    data = flask.request.get_json()
+    address = data.get("address")
     geocode_result = gmaps.geocode(address)
     if not geocode_result:
         return flask.jsonify({"error": "Place not found"})
 
     flask.session["place_id"] = geocode_result[0]["place_id"]
+    flask.session["address"] = address
 
     location = geocode_result[0]["geometry"]["location"]
     image_url = generate_static_map_url(location["lat"], location["lng"])
@@ -71,6 +75,64 @@ def save_polygons():
         json.dump(polygons, f, indent=2)
 
     return flask.jsonify({"success": True, "file_path": file_path})
+
+
+@main.route("/calculate_power_mix", methods=["POST"])
+def calculate_power_mix():
+    data = flask.request.json
+    start_date_str = data.get("start_date")
+    end_date_str = data.get("end_date")
+
+    if not start_date_str or not end_date_str:
+        return flask.jsonify({"error": "Invalid date range"}), 400
+
+    try:
+        start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
+        end_date = datetime.strptime(end_date_str, "%Y-%m-%d")
+    except ValueError:
+        return flask.jsonify({"error": "Invalid date format"}), 400
+
+    with open(
+        os.path.join(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "data"),
+            "simulation.json",
+        ),
+        "r",
+    ) as f:
+        simulation_data = json.load(f)
+
+    total_generation = 0
+    total_consumption = 0
+
+    for record in simulation_data["Data"]:
+        record_date = datetime.strptime(record["date"], "%Y-%m-%d")
+        if start_date <= record_date <= end_date:
+            total_generation += record["generation_kWh"]
+            total_consumption += record["consumption_kWh"]
+
+    remaining_consumption = total_consumption - total_generation
+
+    # Calculate total cost and profit
+    government_price_per_kWh = 0.4  # Example price, replace with the actual price
+    government_feedin_price_per_kWh = 0.06
+    generation_cost = total_generation * government_price_per_kWh
+    consumption_cost = total_consumption * government_price_per_kWh
+
+    initial_investment = simulation_data["PV System Cost"]["Total Cost"]
+
+    profit_earned = total_generation * government_price_per_kWh
+
+    return flask.jsonify(
+        {
+            "total_generation": round(total_generation),
+            "total_consumption": round(total_consumption),
+            "remaining_consumption": round(remaining_consumption),
+            "generation_cost": round(generation_cost),
+            "consumption_cost": round(consumption_cost),
+            "initial_investment": round(initial_investment),
+            "profit_earned": round(profit_earned),
+        }
+    )
 
 
 def generate_static_map_url(lat, lng):

@@ -1,0 +1,410 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content_header %}
+<h2>Power Mix</h2>
+<p>Here is a breakdown of the power mix for your home.</p>
+<div class="row">
+    <div class="col-6 col-12">
+        <label for="start-date">Start Date</label>
+        <ul class="actions" name="start-date" id="start-date">
+            <li>
+                <div class="col-6 col-12">
+                    <label for="start-date-day">Day</label>
+                    <select name="start-date-day" id="start-date-day">
+                        {% for day in range(1, 32) %}
+                        <option value="{{ day }}">{{ day }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="col-6 col-12">
+                    <label for="start-date-month">Month</label>
+                    <select name="start-date-month" id="start-date-month">
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="col-6 col-12">
+                    <label for="start-date-year">Year</label>
+                    <select name="start-date-year" id="start-date-year">
+                        {% for year in range(2020, 2025) %}
+                        <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <label for="end-date">End Date</label>
+        <ul class="actions" name="end-date" id="end-date">
+            <li>
+                <div class="col-6 col-12">
+                    <label for="end-date-day">Day</label>
+                    <select name="end-date-day" id="end-date-day">
+                        {% for day in range(1, 32) %}
+                        <option value="{{ day }}">{{ day }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="col-6 col-12">
+                    <label for="end-date-month">Month</label>
+                    <select name="end-date-month" id="end-date-month">
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="col-6 col-12">
+                    <label for="end-date-year">Year</label>
+                    <select name="end-date-year" id="end-date-year">
+                        {% for year in range(2020, 2025) %}
+                        <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <ul class="col-6 actions">
+            <li><button id="calculate-button" class="button">Calculate</button></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="wrapper">
+    <style>
+    </style>
+
+    <!-- One -->
+    <section id="one" class="wrapper spotlight style1">
+        <div class="inner">
+            <a href="#" class="image2">
+                <div id="piechart" style="width: 300px; height: 300px;"></div>
+            </a>
+            <div class="content">
+                <h2 class="major">Generation, Consumption & Excess</h2>
+                <p>This pie chart provides a visual representation of energy generation and consumption, highlighting
+                    the proportion of energy that is consumed versus the amount generated. The green segment represents
+                    the generated energy, while the red segment illustrates the consumed energy. If the amount of the
+                    generated energy is greater than the consumed another segment is shown in orange. The excess energy
+                    is being sold to the main grid.</p>
+                <a href="#" class="special">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper alt spotlight style2">
+        <div class="inner">
+            <a href="#" class="image2">
+                <div id="piechart2" style="width: 300px; height: 300px;"></div>
+            </a>
+            <div class="content">
+                <h2 class="major">Energy Sources</h2>
+                <p>This chart focuses on the role and importance of the energy mix. The consumption from the previous
+                    pie chart is split to show the contribution of the different energy sources. Energy produced using
+                    PV is visualized in green, and energy from the main grid is in orange. If the energy produced using
+                    PV isn’t sufficient to cover the whole consumption energy from the main grid is being used. </p>
+                <a href="#" class="special">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three -->
+    <section id="three" class="wrapper spotlight style3">
+        <div class="inner">
+            <a href="#" class="image2">
+                <div id="piechart3" style="width: 300px; height: 300px;"></div>
+            </a>
+            <div class="content">
+                <h2 class="major">Investment & Profit</h2>
+                <p>This chart illustrates the relationship between initial investment and profit over the entire
+                    duration of the project. If the profit earned does not cover the initial investment, the chart shows
+                    the profit earned (calculated as multiplication of generation and cost) and the net investment
+                    (initial investment minus profit). If the profit is greater than the initial investment, the chart
+                    displays the net profit, which is calculated as profit minus the initial investment.</p>
+                <a href="#" class="special">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner">
+            <!-- <h2 class="major">Vitae phasellus</h2>
+            <p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce
+                tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in
+                tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p> -->
+            <section class="features">
+                <article>
+                    <a href="#" class="image">
+                        <div id="columnchart" style="width: 100%; height: 300px;"></div>
+                    </a>
+                    <div class="content">
+                        <h3 class="major">Cost Analysis</h3>
+                        <p>This bar diagram visualizes the breakdown of energy costs into three key components:
+                            Total Consumption Cost: Represented by the red bar, this shows the overall cost of energy
+                            consumed. This bar is the sum of the green and the orange bar. In scenarios where generation
+                            exceeds consumption, such as during the summer, this value is equal to the generation cost.
+                            Generation Cost: The green bar indicates the cost associated with energy produced by the
+                            photovoltaic (PV) system. This segment highlights the contribution of renewable energy to
+                            the overall energy mix. Main Grid Cost: Shown by the orange bar, this represents the cost of
+                            energy sourced from the main grid. This is utilized when the energy produced by the PV
+                            system is insufficient to meet total consumption. This chart effectively demonstrates the
+                            cost dynamics between total energy consumption, PV generation, and main grid supply,
+                            emphasizing the cost efficiency and reliance on different energy sources.</p>
+
+                        <a href="#" class="special">Learn more</a>
+                    </div>
+                </article>
+                <!-- <article>
+                    <a href="#" class="image"><img src="static/images/pic05.jpg" alt="" /></a>
+                    <h3 class="major">Nisl placerat</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.
+                    </p>
+                    <a href="#" class="special">Learn more</a>
+                </article> -->
+                <!-- <article>
+                    <a href="#" class="image"><img src="static/images/pic06.jpg" alt="" /></a>
+                    <h3 class="major">Ante fermentum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.
+                    </p>
+                    <a href="#" class="special">Learn more</a>
+                </article> -->
+                <!-- <article>
+                    <a href="#" class="image"><img src="static/images/pic07.jpg" alt="" /></a>
+                    <h3 class="major">Fusce consequat</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.
+                    </p>
+                    <a href="#" class="special">Learn more</a>
+                </article> -->
+            </section>
+            <!-- <ul class="actions">
+                <li><a href="#" class="button">Browse All</a></li>
+            </ul> -->
+        </div>
+    </section>
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(hideAllSections);
+
+    function hideAllSections() {
+        document.querySelectorAll('#wrapper section').forEach(section => {
+            section.style.display = 'none';
+        });
+    }
+
+    function showAllSections() {
+        document.querySelectorAll('#wrapper section').forEach(section => {
+            section.style.display = '';
+        });
+    }
+
+    function generationComsumptionChart(totalGeneration, totalConsumption) {
+        var data;
+        var colors;
+
+
+        if (totalGeneration <= totalConsumption) {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Consumption & Generation (kWh)'],
+                ['Generation', totalGeneration],
+                ['Consumption', totalConsumption]
+            ]);
+            colors = ['green', 'red'];
+        } else {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Consumption & Generation (kWh)'],
+                ['Generation', totalConsumption],
+                ["Sold to Main Grid", totalGeneration - totalConsumption],
+                ['Consumption', totalConsumption]
+            ]);
+            colors = ['green', 'orange', 'red'];
+        }
+
+        var options = {
+            legend: 'none',
+            pieSliceText: 'label',
+            backgroundColor: 'transparent',
+            chartArea: {
+                left: 0,
+                top: 0,
+                width: '99%',
+                height: '99%'
+            },
+            fontSize: 12,
+            colors: colors
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+
+    function generationComsumptionChart2(totalGeneration, totalConsumption) {
+        if (totalGeneration > totalConsumption) {
+            totalConsumption = totalGeneration;
+        }
+
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Total Consumption (kWh)'],
+            ['PV Generation', totalGeneration],
+            ['Main Grid', totalConsumption - totalGeneration]
+        ]);
+
+        var options = {
+            legend: 'none',
+            pieSliceText: 'label',
+            backgroundColor: 'transparent',
+            chartArea: {
+                left: 0,
+                top: 0,
+                width: '99%',
+                height: '99%'
+            },
+            fontSize: 12,
+            colors: ['green', 'darkorange']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+        chart.draw(data, options);
+    }
+
+    function investmentProfitChart(initialInvestment, profitEarned) {
+        var data;
+        var colors;
+
+        if (initialInvestment > profitEarned) {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Cost ($)'],
+                ['Net Initial Investement', initialInvestment - profitEarned],
+                ['Profit Earned', profitEarned]
+            ]);
+            colors = ['blue', 'darkgreen'];
+        } else {
+            data = google.visualization.arrayToDataTable([
+                ['Task', 'Cost ($)'],
+                ['Net Profit Earned', profitEarned - initialInvestment]
+            ]);
+            colors = ['darkgreen'];
+        }
+
+        var options = {
+            legend: 'none',
+            pieSliceText: 'label',
+            backgroundColor: 'transparent',
+            chartArea: {
+                left: 0,
+                top: 0,
+                width: '99%',
+                height: '99%'
+            },
+            fontSize: 12,
+            colors: colors
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+        chart.draw(data, options);
+    }
+
+    function drawColumnChart(consumptionCost, generationCost) {
+        if (consumptionCost < generationCost) {
+            generationCost = consumptionCost;
+        }
+
+        var data = google.visualization.arrayToDataTable([
+            ['Type', 'Amount', { role: 'style' }],
+            ['Total Consumption Cost', consumptionCost, 'red'],
+            ['Generation Cost', generationCost, 'green'],
+            ['Main Grid Cost', consumptionCost - generationCost, 'orange']
+        ]);
+
+        var options = {
+            legend: 'none',
+            backgroundColor: 'transparent',
+            chartArea: {
+                width: '80%',
+                height: '80%'
+            }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+        chart.draw(data, options);
+    }
+
+    document.getElementById('calculate-button').addEventListener('click', function () {
+        const startDate = new Date(
+            document.getElementById('start-date-year').value,
+            document.getElementById('start-date-month').value - 1,
+            document.getElementById('start-date-day').value
+        );
+        const endDate = new Date(
+            document.getElementById('end-date-year').value,
+            document.getElementById('end-date-month').value - 1,
+            document.getElementById('end-date-day').value
+        );
+
+        if (endDate >= startDate) {
+            fetch('/calculate_power_mix', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    start_date: startDate.toISOString().split('T')[0],
+                    end_date: endDate.toISOString().split('T')[0]
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert("Error: " + data.error);
+                        hideAllSections();
+                    } else {
+                        showAllSections();
+                        generationComsumptionChart(data.total_generation, data.total_consumption);
+                        generationComsumptionChart2(data.total_generation, data.total_consumption);
+                        investmentProfitChart(data.initial_investment, data.profit_earned);
+                        drawColumnChart(data.consumption_cost, data.generation_cost);
+                    }
+                });
+        } else {
+            alert("End date must be greater than or equal to start date.");
+            hideAllSections();
+        }
+    });
+</script>
+{% endblock %}
