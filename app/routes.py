@@ -92,7 +92,13 @@ def calculate_power_mix():
     except ValueError:
         return flask.jsonify({"error": "Invalid date format"}), 400
 
-    with open(os.path.join(DATA_DIR, "simulation.json"), "r") as f:
+    with open(
+        os.path.join(
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "data"),
+            "simulation.json",
+        ),
+        "r",
+    ) as f:
         simulation_data = json.load(f)
 
     total_generation = 0
@@ -115,12 +121,6 @@ def calculate_power_mix():
     initial_investment = simulation_data["PV System Cost"]["Total Cost"]
 
     profit_earned = total_generation * government_price_per_kWh
-    # if generation_cost < consumption_cost:
-    #     profit_earned = consumption_cost - generation_cost
-    # else:
-    #     profit_earned = (
-    #         total_generation - total_consumption
-    #     ) * government_feedin_price_per_kWh + consumption_cost
 
     return flask.jsonify(
         {
