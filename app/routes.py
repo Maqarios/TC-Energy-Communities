@@ -50,7 +50,6 @@ def get_image():
     if os.path.exists(file_path):
         with open(file_path, "r") as f:
             roofs = json.load(f)
-            print(roofs)
 
     flask.session["place_id"] = geocode_result[0]["place_id"]
     flask.session["address"] = address
@@ -196,21 +195,33 @@ def fill_polygon_with_rectangles(polygon, obstacles, rect_width, rect_height):
         rectangle = shapely.geometry.box(x, y, x + rect_width, y + rect_height)
         return shapely.affinity.rotate(rectangle, angle, origin="centroid")
 
-    minx, miny, maxx, maxy = polygon.bounds
+    def rotate_to_edge_angle(polygon):
+        edges = []
+        coords = list(polygon.exterior.coords)
+        for i in range(len(coords) - 1):
+            p1, p2 = coords[i], coords[i + 1]
+            angle = math.degrees(math.atan2(p2[1] - p1[1], p2[0] - p1[0]))
+            edges.append((p1, p2, angle))
+        return edges
 
     best_rectangles = []
     max_rectangle_count = 0
 
-    for angle in range(0, 90, 1):
-        rectangles = []
+    polygon_edges = rotate_to_edge_angle(polygon)
+
+    for edge in polygon_edges:
+        p1, p2, angle = edge
+        aligned_rectangles = []
         placed_rectangles = []
+
+        minx, miny, maxx, maxy = polygon.bounds
         y = miny
         while y < maxy:
             x = minx
             while x < maxx:
                 rectangle = create_rectangle(x, y, rect_width, rect_height, angle)
                 if (
-                    rectangle.intersects(polygon)
+                    polygon.contains(rectangle)
                     and not any(
                         rectangle.intersects(obstacle) for obstacle in obstacles
                     )
@@ -218,17 +229,13 @@ def fill_polygon_with_rectangles(polygon, obstacles, rect_width, rect_height):
                         rectangle.intersects(placed) for placed in placed_rectangles
                     )
                 ):
-                    intersection = rectangle.intersection(polygon)
-                    if (
-                        intersection.area / rectangle.area == 1.0
-                    ):  # Ensure the entire rectangle is within the polygon
-                        rectangles.append(intersection)
-                        placed_rectangles.append(rectangle)
+                    aligned_rectangles.append(rectangle)
+                    placed_rectangles.append(rectangle)
                 x += rect_width
             y += rect_height
 
-        if len(rectangles) > max_rectangle_count:
-            best_rectangles = rectangles
-            max_rectangle_count = len(rectangles)
+        if len(aligned_rectangles) > max_rectangle_count:
+            best_rectangles = aligned_rectangles
+            max_rectangle_count = len(aligned_rectangles)
 
     return best_rectangles
