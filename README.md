@@ -10,14 +10,8 @@
         ```
 4. Get [Google Maps API key](https://developers.google.com/maps/documentation)
 5. Set Google Maps API key as environment variable
-    - Linux / MacOS:
-        ```console
-        echo "export GOOGLE_API_KEY='yourkey'" >> ~/.zshrc
-        source ~/.zshrc
-        echo $GOOGLE_API_KEY
-        ```
-    - Windows:
-        ```console
-        setx GOOGLE_API_KEY "yourkey"
-        echo %GOOGLE_API_KEY%
-        ```
+    - Open `app.yaml`
+    - Modify the following line:
+    ```yaml
+    GOOGLE_API_KEY: 'your_google_api_key'
+    ```
