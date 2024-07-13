@@ -1,0 +1,14 @@
+runtime: python311  # or your specific Python runtime
+entrypoint: gunicorn -b :$PORT main:app
+
+env_variables:
+  GOOGLE_API_KEY: 'your_google_api_key'
+
+# If you have static files:
+handlers:
+- url: /static
+  static_dir: app/static
+
+# Allow all requests to be routed to your app
+- url: /.*
+  script: auto

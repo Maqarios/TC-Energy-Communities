@@ -3,10 +3,137 @@
 {% block title %}Home{% endblock %}
 
 {% block content_header %}
-<h2>Welcome to the Home Page</h2>
+<h2>Welcome to Solar Ease</h2>
 {% endblock %}
 
 {% block content %}
-<p>This is the home page of the Flask application.</p>
-<p>Click on the links in the menu to navigate to other pages.</p>
+<!-- One -->
+<section id="one" class="wrapper spotlight style1">
+    <div class="inner">
+        <a href="#" class="image"><img
+                src="{{ url_for('static', filename='images/who-we-are.webp') }}"
+                alt></a>
+        <div class="content">
+            <h2 class="major">Who We Are</h2>
+            <p>Hello, we are SolarEase, a dedicated team committed to
+                transforming green energy into a viable and sustainable business
+                model.</p>
+        </div>
+    </div>
+</section>
+<!-- Two -->
+<section id="two" class="wrapper alt spotlight style2">
+    <div class="inner">
+        <a href="#" class="image"><img
+                src="{{ url_for('static', filename='images/identifying-the-problem.webp') }}"
+                alt></a>
+        <div class="content">
+            <h2 class="major">Identifying a problem</h2>
+            <p>Green energy sources like solar produce little to no greenhouse
+                gasses or other pollutants. This helps combat climate change and
+                reduces air and water pollution, protecting ecosystems and
+                biodiversity. It is also crucial for energy communities aiming
+                to become self-sufficient and resilient. However, the transition
+                to green energy is hindered by a lack of real-time data, revenue
+                channels, and financial resources. Decisions are often based on
+                rough estimates, and excess energy from PVs is sold to the main
+                grid at minimal prices, making the model unsustainable.</p>
+        </div>
+    </div>
+</section>
+<!-- Four -->
+<section id="four" class="wrapper alt style1">
+    <div class="inner">
+        <h2 class="major">Our solution</h2>
+        <p>We propose autonomous mini-grids, reducing dependence on main utility
+            providers. These mini-grids offer real-time data on energy
+            production and consumption, financial tracking, and monthly
+            projections. This enables efficient investment planning in PVs and
+            strategic energy procurement. The mini-grid is equipped with sensors
+            (such as temperature, sunlight and humidity), smart meters, and IoT
+            devices to connect 6-8 buildings together. This mini-grid is being
+            trained on historical data (in the form of energy bills from the
+            last four years and the weather-related data available online). The
+            system will be able to give data visualization about current status
+            related to consumption and production of all buildings in a
+            mini-grid while doing projections for the next one month (while
+            taking the weather forecast values from the internet).</p>
+        <section class="features">
+            <article>
+                <a href="{{ url_for('main.power_mix') }}" class="image"><img
+                        src="{{ url_for('static', filename='images/power-mix.webp') }}"
+                        alt></a>
+                <h3 class="major">Power Mix</h3>
+                <p>This website can calculate the power mix for a home given the
+                    start and end date of the period. The provided values are
+                    the overall consumption, the PV generation and how much
+                    energy has to be taken from the main grid, and how much can
+                    be sold to the main grid. This website calculates the
+                    investment needed and profit made for the given period and
+                    provides an in-depth cost analysis of the generation and
+                    main grid cost. </p>
+                <a href="{{ url_for('main.power_mix') }}" class="special">Learn
+                    more</a>
+            </article>
+            <article>
+                <a href="{{ url_for('main.roof_calculator') }}"
+                    class="image"><img
+                        src="{{ url_for('static', filename='images/roof-calculator.webp') }}"
+                        alt></a>
+                <h3 class="major">Roof Calculator</h3>
+                <p>This website also has a feature called roof calculator. The
+                    user has to just enter his address and select the rooftop
+                    and he will be provided with information on how big the
+                    rooftop is, what position the solar panels have, and how
+                    much energy can be generated from this rooftop. </p>
+                <a href="{{ url_for('main.roof_calculator') }}"
+                    class="special">Learn more</a>
+            </article>
+        </section>
+    </div>
+</section>
+{% endblock %}
+
+{% block content_footer %}
+<h2 class="major">Our Team</h2>
+<!-- <div class="box alt">
+        <div class="features row gtr-uniform">
+            <div class="col-12"><span class="image fit"><img src="{{ url_for('static', filename='images/pic08.jpg') }}" alt=""></span>
+            </div>
+            <div class="col-4"><span class="image fit"><img src="{{ url_for('static', filename='images/pic05.jpg') }}" alt=""></span>
+            </div>
+            <div class="col-4"><span class="image fit"><img src="{{ url_for('static', filename='images/pic06.jpg') }}" alt=""></span>
+            </div>
+            <div class="col-4"><span class="image fit"><img src="{{ url_for('static', filename='images/pic07.jpg') }}" alt=""></span>
+            </div>
+        </div>
+    </div> -->
+<div class="box alt">
+    <div class="features2 row gtr-uniform">
+        <article class="col-4"><span class="image fit"><img
+                    src="{{ url_for('static', filename='images/pic05.jpg') }}"
+                    alt></span>
+            <h3 class="major">Ivana Peneva</h3>
+            <p>M.Sc. Information Systems</p>
+            <a href="#"
+                class="special">Contact</a>
+        </article>
+        <article class="col-4"><span class="image fit"><img
+                    src="{{ url_for('static', filename='images/pic06.jpg') }}"
+                    alt></span>
+            <h3 class="major">Asad Khan</h3>
+            <p>M.Sc Management and Technology</p>
+            <a href="#"
+                class="special">Contact</a>
+        </article>
+        <article class="col-4"><span class="image fit"><img
+                    src="{{ url_for('static', filename='images/pic07.jpg') }}"
+                    alt></span>
+            <h3 class="major">Maqarios Saleh</h3>
+            <p>M.Sc. Computer Science</p>
+            <a href="#"
+                class="special">Contact</a>
+        </article>
+    </div>
+</div>
 {% endblock %}

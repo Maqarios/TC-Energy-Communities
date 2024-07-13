@@ -23,20 +23,20 @@
             <nav>
                 <a href="#menu">Menu</a>
             </nav>
+            
+            <!-- Menu -->
+            <nav id="menu">
+                <div class="inner">
+                    <h2>Menu</h2>
+                    <ul class="links">
+                        <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                        <li><a href="{{ url_for('main.power_mix') }}">Power Mix</a></li>
+                        <li><a href="{{ url_for('main.roof_calculator') }}">Roof Calculator</a></li>
+                    </ul>
+                    <a href="#" class="close">Close</a>
+                </div>
+            </nav>
         </header>
-
-        <!-- Menu -->
-        <nav id="menu">
-            <div class="inner">
-                <h2>Menu</h2>
-                <ul class="links">
-                    <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                    <li><a href="{{ url_for('main.power_mix') }}">Power Mix</a></li>
-                    <li><a href="{{ url_for('main.roof_calculator') }}">Roof Calculator</a></li>
-                </ul>
-                <a href="#" class="close">Close</a>
-            </div>
-        </nav>
 
         <section id="banner">
 
@@ -52,7 +52,11 @@
             </div>
         </section>
 
-
+        <section id="footer">
+            <div class="inner">
+                {% block content_footer %}{% endblock %}
+            </div>
+        </section>
 
     </div>
 
