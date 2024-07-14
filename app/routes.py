@@ -74,9 +74,15 @@ def calculate():
     obstacles = data.get("obstacles", [])
     sqm_per_pixel = flask.session.get("sqm_per_pixel")
 
-    if not flask.session.get("place_id") or not roofs or not sqm_per_pixel:
+    if not flask.session.get("place_id"):
         return (
-            flask.jsonify({"error": "Missing address, roofs data, or sqm_per_pixel"}),
+            flask.jsonify({"error": "Missing address"}),
+            400,
+        )
+
+    if not roofs:
+        return (
+            flask.jsonify({"error": "Missing roofs data"}),
             400,
         )
 

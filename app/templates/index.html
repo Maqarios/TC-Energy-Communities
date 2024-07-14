@@ -3,7 +3,17 @@
 {% block title %}Home{% endblock %}
 
 {% block content_header %}
+<div class="logo">
+    <span class="icon">
+        <img
+            style="display: inline-block; width: 100%; height: 100%; object-fit: cover;"
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt>
+    </span>
+</div>
 <h2>Welcome to Solar Ease</h2>
+<p>Hello, we are SolarEase, a dedicated team committed to transforming green
+    energy into a viable and sustainable business model.</p>
 {% endblock %}
 
 {% block content %}
@@ -11,13 +21,19 @@
 <section id="one" class="wrapper spotlight style1">
     <div class="inner">
         <a href="#" class="image"><img
-                src="{{ url_for('static', filename='images/who-we-are.webp') }}"
+                src="{{ url_for('static', filename='images/identifying-the-problem.webp') }}"
                 alt></a>
         <div class="content">
-            <h2 class="major">Who We Are</h2>
-            <p>Hello, we are SolarEase, a dedicated team committed to
-                transforming green energy into a viable and sustainable business
-                model.</p>
+            <h2 class="major">Identifying a problem</h2>
+            <p class="justifier">Harnessing solar energy is a powerful step
+                toward a sustainable future, offering a clean, renewable source
+                of power that reduces our carbon footprint, mitigates climate
+                change, and supports self-sufficient, resilient energy
+                communities. However, the transition is hindered by a lack of
+                real-time data, revenue channels, and financial resources.
+                Decisions are often based on rough estimates, and excess PV
+                energy is sold to the grid at low prices, making the model
+                unsustainable.</p>
         </div>
     </div>
 </section>
@@ -25,46 +41,34 @@
 <section id="two" class="wrapper alt spotlight style2">
     <div class="inner">
         <a href="#" class="image"><img
-                src="{{ url_for('static', filename='images/identifying-the-problem.webp') }}"
+                src="{{ url_for('static', filename='images/our-solution.webp') }}"
                 alt></a>
         <div class="content">
-            <h2 class="major">Identifying a problem</h2>
-            <p>Green energy sources like solar produce little to no greenhouse
-                gasses or other pollutants. This helps combat climate change and
-                reduces air and water pollution, protecting ecosystems and
-                biodiversity. It is also crucial for energy communities aiming
-                to become self-sufficient and resilient. However, the transition
-                to green energy is hindered by a lack of real-time data, revenue
-                channels, and financial resources. Decisions are often based on
-                rough estimates, and excess energy from PVs is sold to the main
-                grid at minimal prices, making the model unsustainable.</p>
+            <h2 class="major">Our solution</h2>
+            <p class="justifier">We propose autonomous mini-grids to reduce
+                dependence on utility
+                providers. These mini-grids provide real-time data on energy
+                production and consumption, financial tracking, and monthly
+                projections, enabling efficient investment in PVs and strategic
+                energy procurement. Equipped with sensors, smart meters, and IoT
+                devices, this can connect 6-8 buildings. Trained on four years
+                of
+                energy bills and online weather data, the system offers data
+                visualization and monthly projections.</p>
         </div>
     </div>
 </section>
 <!-- Four -->
 <section id="four" class="wrapper alt style1">
     <div class="inner">
-        <h2 class="major">Our solution</h2>
-        <p>We propose autonomous mini-grids, reducing dependence on main utility
-            providers. These mini-grids offer real-time data on energy
-            production and consumption, financial tracking, and monthly
-            projections. This enables efficient investment planning in PVs and
-            strategic energy procurement. The mini-grid is equipped with sensors
-            (such as temperature, sunlight and humidity), smart meters, and IoT
-            devices to connect 6-8 buildings together. This mini-grid is being
-            trained on historical data (in the form of energy bills from the
-            last four years and the weather-related data available online). The
-            system will be able to give data visualization about current status
-            related to consumption and production of all buildings in a
-            mini-grid while doing projections for the next one month (while
-            taking the weather forecast values from the internet).</p>
         <section class="features">
             <article>
                 <a href="{{ url_for('main.power_mix') }}" class="image"><img
                         src="{{ url_for('static', filename='images/power-mix.webp') }}"
                         alt></a>
                 <h3 class="major">Power Mix</h3>
-                <p>This website can calculate the power mix for a home given the
+                <p class="justifier">This website can calculate the power mix
+                    for a home given the
                     start and end date of the period. The provided values are
                     the overall consumption, the PV generation and how much
                     energy has to be taken from the main grid, and how much can
@@ -81,7 +85,8 @@
                         src="{{ url_for('static', filename='images/roof-calculator.webp') }}"
                         alt></a>
                 <h3 class="major">Roof Calculator</h3>
-                <p>This website also has a feature called roof calculator. The
+                <p class="justifier">This website also has a feature called roof
+                    calculator. The
                     user has to just enter his address and select the rooftop
                     and he will be provided with information on how big the
                     rooftop is, what position the solar panels have, and how
@@ -124,4 +129,12 @@
         </article>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<style>
+    .justifier {
+        text-align: justify;
+    }
+</style>
 {% endblock %}

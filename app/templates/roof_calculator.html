@@ -3,67 +3,103 @@
 {% block title %}Roof Calculator{% endblock %}
 
 {% block content_header %}
-<h2>Roof Area Selector</h2>
-<p>Enter the address to find the location and select roof areas.</p>
-<div class="row">
-    <div class="col-6 col-12">
-        <ul class="actions fit">
-            <li>
-                <div class="col-6 col-12">
-                    <label for="address">Address</label>
-                    <input type="text" name="address" id="address" placeholder="Enter Address">
-                </div>
-            </li>
-        </ul>
-        <ul class="col-6 actions">
-            <li><button id="get-image" class="button">Get Satellite Image</button></li>
-        </ul>
-    </div>
-</div>
-{% endblock %}
-
-{% block content %}
-<section id="roof-calculator">
-    <div class="container">
-        <div id="map-container">
-            <div id="map" style="width: {{ img_width }}px; height: {{ img_height }}px;"></div>
-        </div>
-        <div id="polygon-list-container" style="display: none;">
-            <h3>Selected Roof Areas</h3>
-            <div class="table-wrapper">
-                <table class="alt" id="polygon-table">
-                    <thead>
-                        <tr>
-                            <th>Visibility</th>
-                            <th>Name</th>
-                            <th>Feature Type</th>
-                            <th>Roof Type</th>
-                            <th>Tilt</th>
-                            <th>Azimuth</th>
-                        </tr>
-                    </thead>
-                    <tbody id="polygon-list">
-                        <!-- Polygon items will be added here -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <ul class="actions fir">
+<h2>Roof Calculator</h2>
+<div>
+    <h3>Instructions</h3>
+    <ol class="no-gap-list">
+        <li>Enter the address or the latitude and longitude of the location you
+            want to calculate the roof for.</li>
         <li>
-            <button id="calculate" class="button">Calculate</button>
+            Click on "Get Sallite Image" button.
         </li>
-    </ul>
-    <div id="error-message" class="error" style="display: none;">Place not found. Please try again.</div>
-</section>
-{% endblock %}
+        <li>To select a roof section, follow these steps:
+            <ol>
+                <li>Click on the <img class="instructions-image"
+                        src="{{ url_for('static', filename='images/polygon-marker.png') }}"
+                        alt> icon
+                    located in the top left corner of the map.</li>
+                <li>Click the corners of the desired roof section</li>
+            </ol>
+        </li>
+        <li>
+            (Optional) To delete a roof section, follow these steps:
+            <ol>
+                <li>Click on the <img class="instructions-image"
+                        src="{{ url_for('static', filename='images/trash-marker.png') }}"
+                        alt> icon
+                    located in the top left corner of the map.</li>
+                <li>Click on the roof section you want to delete.</li>
+                <li>Click "Save".</li>
+            </li>
+        </ol>
+        <li>Fill in the details for the roof section in the table
+            below.</li>
+        <li>Click on "Calculate" button to calculate the solar power potential,
+            and wait for the solar panels to appear in black on the drawn roof
+            areas.</li>
+    </div>
+    <div class="row">
+        <div class="col-6 col-12">
+            <ul class="actions fit">
+                <li>
+                    <div class="col-6 col-12">
+                        <h3 for="address">Address</h3>
+                        <input type="text" name="address" id="address"
+                            placeholder="Enter Address">
+                    </div>
+                </li>
+            </ul>
+            <ul class="col-6 actions">
+                <li><button id="get-image" class="button">Get Satellite
+                        Image</button></li>
+            </ul>
+        </div>
+    </div>
+    {% endblock %}
 
-{% block scripts %}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-<style>
+    {% block content %}
+    <section id="roof-calculator">
+        <div class="inner">
+            <div id="map-container">
+                <div id="map"
+                    style="width: {{ img_width }}px; height: {{ img_height }}px;"></div>
+            </div>
+            <div id="polygon-list-container" style="display: none;">
+                <h3>Selected Roof Areas</h3>
+                <div class="table-wrapper">
+                    <table class="alt" id="polygon-table">
+                        <thead>
+                            <tr>
+                                <th>Visibility</th>
+                                <th>Name</th>
+                                <th>Feature Type</th>
+                                <th>Roof Type</th>
+                                <th>Tilt</th>
+                                <th>Azimuth</th>
+                            </tr>
+                        </thead>
+                        <tbody id="polygon-list">
+                            <!-- Polygon items will be added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button id="calculate" class="button">Calculate</button>
+        </div>
+        <div id="error-message" class="error" style="display: none;">Place not
+            found. Please try again.</div>
+    </section>
+    {% endblock %}
+
+    {% block scripts %}
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <style>
     #roof-calculator {
         padding: 20px;
     }
@@ -173,8 +209,23 @@
             height: auto;
         }
     }
+
+    .instructions-image {
+        height: 1.3em;
+        /* Set the height of the image relative to the font size */
+        vertical-align: middle;
+        /* Align the image vertically with the text */
+    }
+
+    .no-gap-list>li>ol {
+        margin-bottom: 0;
+    }
+
+    .no-gap-list>li {
+        margin-bottom: 0.5em;
+    }
 </style>
-<script>
+    <script>
     let map;
     let drawnItems;
     let polygonCount = 0;
@@ -504,4 +555,4 @@
         }
     }
 </script>
-{% endblock %}
+    {% endblock %}
