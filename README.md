@@ -15,17 +15,20 @@
    - Follow the instructions on the Google Developers website to obtain your API key.
 5. Set Google Maps API key as environment variable
     - Local:
+      - Operating System
         - Linux / MacOS:
             ```console
-            echo "export GOOGLE_API_KEY='yourkey'" >> ~/.zshrc
+            echo "export GOOGLE_API_KEY='your_google_api_key'" >> ~/.zshrc
             source ~/.zshrc
             echo $GOOGLE_API_KEY
             ```
         - Windows:
             ```console
-            setx GOOGLE_API_KEY "yourkey"
+            setx GOOGLE_API_KEY "your_google_api_key"
             echo %GOOGLE_API_KEY%
             ```
+      - Uncomment `app.run(debug=True)` in `main.py`
+      - Run `main.py`
     - Online Deployment:
         - Open `app-temp.yaml`
         - Modify the following line:
@@ -33,3 +36,5 @@
             GOOGLE_API_KEY: 'your_google_api_key'
             ```
         - Rename the file to `app.yaml`
+        - Uncomment `app.run(host="0.0.0.0", port=8080)` in `main.py`
+        - Use [Google Cloud web hosting](https://cloud.google.com/solutions/web-hosting?hl=en) for online deployment.

@@ -161,8 +161,7 @@ def calculate_power_mix():
     remaining_consumption = total_consumption - total_generation
 
     # Calculate total cost and profit
-    government_price_per_kWh = 0.4  # Example price, replace with the actual price
-    government_feedin_price_per_kWh = 0.06
+    government_price_per_kWh = 0.4
     generation_cost = total_generation * government_price_per_kWh
     consumption_cost = total_consumption * government_price_per_kWh
 
