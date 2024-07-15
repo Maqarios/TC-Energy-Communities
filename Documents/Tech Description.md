@@ -1,5 +1,7 @@
 # 1. **Tech Description - Team Energy 5 - SolarEase**
 
+<img src="../app/static/images/logo.png" style="width: 100%; height: auto;">
+
 <div style="page-break-after: always"></div>
 
 - [1. **Tech Description - Team Energy 5 - SolarEase**](#1-tech-description---team-energy-5---solarease)
@@ -267,7 +269,6 @@ The **content_header** block defines the header section of the web page content,
    - **Container**: A `<div>` with the class "logo" to encapsulate the logo.
    - **Icon**: A `<span>` element with the class "icon" that contains an `<img>` element.
    - **Image**: The `<img>` element displays the logo image sourced from the static folder and styled to fit the container using inline CSS.
-
 2. **Header Text**:
    - **Title**: An `<h2>` element displaying "Welcome to Solar Ease".
    - **Subtitle**: A `<p>` element providing a brief introduction with the text "Bringing Neighbors Together for Local Solar Empowerment".
@@ -362,25 +363,20 @@ This section outlines the proposed solution for the identified problem, focusing
 1. **Section Container**:
    - **Element**: `<section>` with id "two", class "wrapper alt spotlight style2".
    - **Purpose**: Acts as a container for the entire solution section.
-
 2. **Inner Container**:
    - **Element**: `<div>` with class "inner".
    - **Purpose**: Wraps the content to provide inner styling and alignment.
-
 3. **Image Link**:
    - **Element**: `<a>` with an embedded `<img>`.
    - **Image Source**: The image is sourced from the static folder and displayed using the `<img>` tag.
    - **Purpose**: Provides a visual element related to the proposed solution.
-
 4. **Content Container**:
    - **Element**: `<div>` with class "content".
    - **Purpose**: Contains the text content of the section.
-
 5. **Major Heading**:
    - **Element**: `<h2>` with class "major".
    - **Text**: "Our solution".
    - **Purpose**: Serves as the main heading for the section.
-
 6. **Description Paragraph**:
    - **Element**: `<p>` with class "justifier".
    - **Text**: Describes the proposed autonomous mini-grids, detailing their functionalities, benefits, and the technology used.
