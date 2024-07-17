@@ -1,2 +1,5 @@
 dump/
 app.yaml
+__pycache__/
+*.pyc
+.vscode
